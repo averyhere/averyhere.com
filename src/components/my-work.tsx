@@ -46,6 +46,28 @@ const data = [
         Owned the conversion of original visual design concepts to bulletproof front-end implementations. Built, tested and deployed client websites, as well as multi-channel campaigns in marketing automation platforms.
       </p>
     )
+  },
+  {
+    id: 2,
+    company: "Grayson Sky",
+    title: "Lead Web Developer",
+    subhead: "May 2014 - October 2015, Philadelphia, PA",
+    body: (
+      <p>
+        Developed and managed multiple projects. Managed the development team, produced and presented scopes to clients. Assisted in the design of websites and other branding aspects.
+      </p>
+    )
+  },
+  {
+    id: 3,
+    company: "Freelance",
+    title: "Web Developer",
+    subhead: "December 2010 - May 2014, Philadelphia, PA",
+    body: (
+      <p>
+        Designed and developed custom websites for small businesses. Worked with key stakeholders to establish timelines, milestones, and objectives.
+      </p>
+    )
   }
 ]
 
