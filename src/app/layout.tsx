@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lexend_Deca } from "next/font/google";
+import { AveryOndoLogo, MattOndoLogo } from "@/components/logos"
+import { siteConfig } from "@/siteConfig"
 import "./globals.css";
+import Link from "next/link"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lexendDeca = Lexend_Deca({
+  variable: "--font-lexend-deca",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +23,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`relative ${lexendDeca.variable} ${lexendDeca.className}`}
       >
-        {children}
+        <div className="md:min-h-dvh grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-7xl items-center justify-center p-4">
+          <header>
+            <h1 className="sr-only">Avery Ondo</h1>
+            <Link href="/">
+              { siteConfig.deadName === true && (
+                <MattOndoLogo className="w-full h-full max-md:max-w-3xs max-md:m-auto" />
+              ) || (
+                <AveryOndoLogo className="w-full h-full max-md:max-w-3xs max-md:m-auto" />
+              )}
+            </Link>
+          </header>
+          <div>
+            {children}
+          </div>
+        </div>
+        <p className="text-center mt-4"><small>© Avery Ondo</small></p>
       </body>
     </html>
   );
