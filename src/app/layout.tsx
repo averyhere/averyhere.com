@@ -4,6 +4,7 @@ import { AveryOndoLogo, MattOndoLogo } from "@/components/logos"
 import { siteConfig } from "@/siteConfig"
 import "./globals.css";
 import Link from "next/link"
+import { Navigation } from "@/components/navigation"
 
 const lexendDeca = Lexend_Deca({
   variable: "--font-lexend-deca",
@@ -25,16 +26,18 @@ export default function RootLayout({
       <body
         className={`relative ${lexendDeca.variable} ${lexendDeca.className}`}
       >
+        <a href="#skip-to-main-content" className="sr-only">Skip to main content</a>
         <div className="md:min-h-dvh grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-7xl items-center justify-center p-4">
           <header>
             <h1 className="sr-only">Avery Ondo</h1>
             <Link href="/">
               { siteConfig.deadName === true && (
-                <MattOndoLogo className="w-full h-full max-md:max-w-3xs max-md:m-auto" />
+                <MattOndoLogo className="w-full h-full max-w-3xs m-auto md:max-w-fit" />
               ) || (
-                <AveryOndoLogo className="w-full h-full max-md:max-w-3xs max-md:m-auto" />
+                <AveryOndoLogo className="w-full h-full max-w-3xs m-auto md:max-w-" />
               )}
             </Link>
+            <Navigation variant="horizontal" />
           </header>
           <div>
             {children}

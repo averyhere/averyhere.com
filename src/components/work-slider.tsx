@@ -2,13 +2,15 @@
 
 import { useState } from "react"
 
-type data = {
+type item = {
   id: number;
   company:  "string";
   title: "string";
   subhead:  "string";
   body: React.JSX.Element;
 }
+
+type data = Array<item>;
 
 const data = [
   {
