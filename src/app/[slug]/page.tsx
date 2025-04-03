@@ -4,7 +4,6 @@ import { AboutSection } from "@/components/about"
 import { Navigation } from "@/components/navigation"
 import { MyWorkSlider } from "@/components/my-work"
 import { ContactSection } from "@/components/contact"
-
 import { usePathname } from "next/navigation"
 
 export default function DefaultPage() {
