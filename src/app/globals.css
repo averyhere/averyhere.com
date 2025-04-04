@@ -31,7 +31,8 @@
 
 @theme inline {
   --color-purple: var(--purple);
-  --color-blue: #66C7F1;
+  --color-blue: var(--blue);
+  --color-pink: var(--pink);
   --color-bright-purple: var(--bright-purple);
 }
 
@@ -70,7 +71,7 @@ body {
 }
 
 .button {
-  @apply p-2 relative text-bright-purple cursor-pointer;
+  @apply p-2 relative text-white text-shadow-black cursor-pointer;
 }
 
 .button:before,
@@ -93,7 +94,7 @@ body {
 }
 
 .dark .button {
-  @apply text-black;
+  @apply text-white;
 }
 
 .button:hover:after {
