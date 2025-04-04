@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export const Navigation = ({ variant}: { variant?: string }) => {
   const pathname = usePathname();
-  const classes = variant === 'horizontal' ? 'text-2xl flex flex-col flex-row gap-8 mt-8 justify-around' : 'text-4xl flex flex-col gap-4'
+  const classes = variant === 'horizontal' ? 'text-xl md:text-2xl flex flex-col flex-row gap-8 mt-8 justify-around' : 'text-4xl flex flex-col gap-4'
   return (
     <nav className="nav-menu">
       <ul className={classes}>

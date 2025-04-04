@@ -8,7 +8,7 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="absolute cursor-pointer z-50 top-4 right-4 flex gap-4 items-center"
+      className="md:absolute cursor-pointer z-50 top-4 right-4 flex justify-self-end p-4 gap-4 items-center"
       title="Toggle theme"
       aria-label="Toggle theme"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
