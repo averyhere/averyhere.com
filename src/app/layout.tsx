@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lexend_Deca } from "next/font/google";
 import { siteConfig } from "@/siteConfig";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
 
@@ -40,6 +41,7 @@ export default function RootLayout({
           <p className="text-center"><small>© {siteConfig.deadName === true ? 'Matt' : 'Avery'} Ondo</small></p>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
