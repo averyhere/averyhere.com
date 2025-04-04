@@ -24,7 +24,7 @@
     --bright-purple: #A41EF1;
   }
   .dark {
-    --color-background: var(--bright-purple);
+    --color-background: var(--black);
     --color-foreground: var(--white);
   }
 }
