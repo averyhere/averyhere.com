@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Lexend_Deca } from "next/font/google";
 import { siteConfig } from "@/siteConfig";
-import { SiteHeader } from "@/components/header"
 import "./globals.css";
 
 
