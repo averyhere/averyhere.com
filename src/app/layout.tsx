@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend_Deca } from "next/font/google";
 import { siteConfig } from "@/siteConfig";
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 
 
@@ -38,6 +39,7 @@ export default function RootLayout({
           {children}
           <p className="text-center"><small>© {siteConfig.deadName === true ? 'Matt' : 'Avery'} Ondo</small></p>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
