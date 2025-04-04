@@ -5,6 +5,8 @@ import { siteConfig } from "@/siteConfig"
 import "./globals.css";
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
+import ThemeToggle from "@/components/theme-toggle"
+import ThemeProvider from "@/hooks/theme-provider";
 
 const lexendDeca = Lexend_Deca({
   variable: "--font-lexend-deca",
@@ -27,23 +29,31 @@ export default function RootLayout({
         className={`relative ${lexendDeca.variable} ${lexendDeca.className}`}
       >
         <a href="#skip-to-main-content" className="sr-only">Skip to main content</a>
-        <div className="md:min-h-dvh grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-7xl items-center justify-center p-4">
-          <header>
-            <h1 className="sr-only">Avery Ondo</h1>
-            <Link href="/">
-              { siteConfig.deadName === true && (
-                <MattOndoLogo className="w-full h-full max-w-3xs m-auto md:max-w-fit" />
-              ) || (
-                <AveryOndoLogo className="w-full h-full max-w-3xs m-auto md:max-w-" />
-              )}
-            </Link>
-            <Navigation variant="horizontal" />
-          </header>
-          <div>
-            {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ThemeToggle />
+          <div className="md:min-h-dvh grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-7xl items-center justify-center p-4">
+            <header>
+              <h1 className="sr-only">Avery Ondo</h1>
+              <Link href="/">
+                { siteConfig.deadName === true && (
+                  <MattOndoLogo className="w-full h-full max-w-3xs m-auto md:max-w-full" />
+                ) || (
+                  <AveryOndoLogo className="w-full h-full max-w-3xs m-auto md:max-w-full" />
+                )}
+              </Link>
+              <Navigation variant="horizontal" />
+            </header>
+            <div>
+              {children}
+            </div>
           </div>
-        </div>
-        <p className="text-center mt-4"><small>© Avery Ondo</small></p>
+          <p className="text-center mt-4"><small>© Avery Ondo</small></p>
+        </ThemeProvider>
       </body>
     </html>
   );
