@@ -1,4 +1,3 @@
-import { siteConfig } from "@/siteConfig"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { MyWorkSlider } from "@/components/work-slider"
 

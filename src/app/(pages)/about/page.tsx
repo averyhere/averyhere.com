@@ -1,5 +1,3 @@
-import { siteConfig } from "@/siteConfig"
-
 export default function Page() {
   return (
     <>
