@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/my-work',
+        destination: '/experience',
+        permanent: true,
+      },
+      {
         source: '/archive/:path',
         destination: '/',
         permanent: true,
