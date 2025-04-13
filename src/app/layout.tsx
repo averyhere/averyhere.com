@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`relative ${lexendDeca.variable} ${lexendDeca.className} px-4`}
+        className={`relative ${lexendDeca.variable} ${lexendDeca.className} px-4 md:overflow-hidden md:h-[100vh] md:max-h-[100vh]`}
       >
         <a href="#skip-to-main-content" className="sr-only">Skip to main content</a>
         <ThemeProvider
@@ -38,7 +38,7 @@ export default function RootLayout({
         >
           <ThemeToggle />
           {children}
-          <p className="text-center"><small>© {siteConfig.deadName === true ? 'Matt' : 'Avery'} Ondo</small></p>
+          <p className="text-center md:absolute md:left-4 md:bottom-4"><small>© {siteConfig.deadName === true ? 'Matt' : 'Avery'} Ondo</small></p>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
