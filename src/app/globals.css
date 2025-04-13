@@ -71,7 +71,7 @@ body {
 }
 
 .button {
-  @apply p-2 relative text-white text-shadow-black cursor-pointer;
+  @apply flex w-max gap-1 items-center p-2 relative text-white text-shadow-black cursor-pointer;
 }
 
 .button:before,
