@@ -1,3 +1,3 @@
 export const siteConfig = {
-  deadName: false,
+  // intentionally blank
 }

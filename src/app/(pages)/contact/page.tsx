@@ -4,7 +4,6 @@ import {
   PiEnvelopeDuotone
 } from "react-icons/pi"
 import { HiOutlineExternalLink } from "react-icons/hi"
-import { siteConfig } from "@/siteConfig"
 
 export default function Page() {
   return (
@@ -16,8 +15,8 @@ export default function Page() {
 
       <ul className="grid grid-cols-2 md:grid-cols-3 items-center justify-center">
         <li>
-          <a href="https://www.linkedin.com/in/mattondo/" target="_blank" className="flex flex-col items-center justify-center transition-all duration-200 hover:text-blue">
-            <PiLinkedinLogoDuotone className="size-24 max-w-full" /> <span className="flex">LinkedIn{siteConfig.deadName ? '' : '*'} <HiOutlineExternalLink /></span>
+          <a href="https://www.linkedin.com/in/averyondo/" target="_blank" className="flex flex-col items-center justify-center transition-all duration-200 hover:text-blue">
+            <PiLinkedinLogoDuotone className="size-24 max-w-full" /> <span className="flex">LinkedIn <HiOutlineExternalLink /></span>
           </a>
         </li>
         <li>
@@ -26,17 +25,11 @@ export default function Page() {
           </a>
         </li>
         <li>
-          <a href={`mailto:${siteConfig.deadName ? 'yours.truly@mattondo.com' : 'hello@averyhere.com'}`} target="_blank" className="flex flex-col items-center justify-center transition-all duration-200 hover:text-blue">
+          <a href='mailto:hello@averyhere.com' target="_blank" className="flex flex-col items-center justify-center transition-all duration-200 hover:text-blue">
             <PiEnvelopeDuotone className="size-24 max-w-full" /> <span className="flex">Email <HiOutlineExternalLink /></span>
           </a>
         </li>
       </ul>
-
-      {siteConfig.deadName === false && (
-        <p className="text-xs italic w-full text-center mt-4">
-          * References former first name
-        </p>
-      )}
     </>
   );
 }

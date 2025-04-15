@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Lexend_Deca } from "next/font/google";
-import { siteConfig } from "@/siteConfig";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
@@ -15,8 +14,8 @@ const lexendDeca = Lexend_Deca({
 })
 
 export const metadata: Metadata = {
-  title: siteConfig?.deadName ? 'Matt Ondo' : 'Avery Ondo',
-  description: siteConfig?.deadName ? 'Matt Ondo\s personal website.' : 'Avery Ondo\'s personal website.',
+  title: 'Avery Ondo',
+  description: 'Avery Ondo\'s personal website.',
 };
 
 export default function RootLayout({
@@ -38,7 +37,7 @@ export default function RootLayout({
         >
           <ThemeToggle />
           {children}
-          <p className="text-center md:absolute md:left-4 md:bottom-4"><small>© {siteConfig.deadName === true ? 'Matt' : 'Avery'} Ondo</small></p>
+          <p className="text-center md:absolute md:left-4 md:bottom-4"><small>© Avery Ondo</small></p>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
