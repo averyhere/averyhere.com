@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`relative ${lexendDeca.variable} ${lexendDeca.className} px-4 md:overflow-hidden md:h-[100vh] md:max-h-[100vh]`}
+        className={`relative ${lexendDeca.variable} ${lexendDeca.className}`}
       >
         <a href="#skip-to-main-content" className="sr-only">Skip to main content</a>
         <ThemeProvider
@@ -36,8 +36,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThemeToggle />
-          {children}
-          <p className="text-center md:absolute md:left-4 md:bottom-4"><small>© Avery Ondo</small></p>
+          <div className="flex flex-col w-full max-w-4xl m-auto">
+            <div className="grow h-full flex flex-col md:flex-row gap-8 items-center p-4">
+              {children}
+            </div>
+            <p className="text-center grow-0"><small>© Avery Ondo</small></p>
+          </div>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
