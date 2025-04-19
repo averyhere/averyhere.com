@@ -30,7 +30,7 @@ export const MyWorkSlider = ({data}: {data: Slides}) => {
   }
 
   return (
-    <section className="work-slider">
+    <section>
       {data.map((item) => (
         <article key={item.id} className={`slide ${ item.id === current ? 'active' : 'pointer-events-none' }`} >
           <header className="border-0 border-b border-p pb-2 mb-2">

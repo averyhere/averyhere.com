@@ -1,9 +1,14 @@
-import { SiteHeader } from "@/components/header"
+import { AveryOndoLogo } from "@/components/logos"
+import Link from "next/link"
+import { Navigation } from "@/components/navigation"
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-1 gap-4 md:gap-8 min-h-dvh m-auto items-center justify-center">
-    <SiteHeader className="" />
+    <div className="h-full w-full flex flex-col min-h-dvh gap-4 items-center justify-center p-4">
+      <Link href="/" className="w-full h-auto max-w-lg">
+        <AveryOndoLogo className="w-full h-full" />
+      </Link>
+      <Navigation variant="horizontal" />
     </div>
   );
 }

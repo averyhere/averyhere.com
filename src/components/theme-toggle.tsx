@@ -8,12 +8,12 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="absolute cursor-pointer z-50 top-4 right-4 flex justify-self-end gap-4 items-center"
+      className="absolute cursor-pointer z-50 top-4 right-4 flex justify-self-end gap-2 items-center"
       title="Toggle theme"
       aria-label="Toggle theme"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      <svg width="40" height="39" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-8 dark:hidden">
+      <svg width="40" height="39" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-6 dark:hidden">
         <path fillRule="evenodd" clipRule="evenodd" d="M35.4667 18.9778C35.4667 27.3971 28.6415 34.2222 20.2222 34.2222C11.8029 34.2222 4.97778 27.3971 4.97778 18.9778C4.97778 10.5585 11.8029 3.73333 20.2222 3.73333C28.6415 3.73333 35.4667 10.5585 35.4667 18.9778ZM28 19.2889C28 23.7563 24.3785 27.3778 19.9111 27.3778C15.4437 27.3778 11.8222 23.7563 11.8222 19.2889C11.8222 14.8215 15.4437 11.2 19.9111 11.2C24.3785 11.2 28 14.8215 28 19.2889Z" fill="#F184D5"/>
         <path d="M20.1647 11.2039C22.8901 11.2878 25.2761 12.7199 26.6781 14.8557L33.0996 3.73335L26.6333 2.15848e-05L20.1647 11.2039Z" fill="#66C7F1"/>
         <path d="M26.9928 15.3769C27.6346 16.5363 28 17.8699 28 19.2889C28 20.5642 27.7048 21.7707 27.1791 22.8436H39.8222V15.3769H26.9928Z" fill="#66C7F1"/>
@@ -29,7 +29,7 @@ export default function ThemeToggle() {
         <path d="M5.47223 22.8436L12.6431 22.8436C12.1174 21.7707 11.8222 20.5642 11.8222 19.2889C11.8222 17.8699 12.1876 16.5363 12.8294 15.3769L5.40553 15.377C5.12594 16.5315 4.97778 17.7373 4.97778 18.9778C4.97778 20.3135 5.14956 21.6091 5.47223 22.8436Z" fill="#ACA6E3"/>
       </svg>
 
-      <svg width="40" height="39" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-8 not-dark:hidden">
+      <svg width="40" height="39" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-6 not-dark:hidden">
         <path fillRule="evenodd" clipRule="evenodd" d="M20.2444 34.3313C28.6637 34.3313 35.4889 27.5061 35.4889 19.0868C35.4889 10.6676 28.6637 3.8424 20.2444 3.8424C11.8252 3.8424 5 10.6676 5 19.0868C5 27.5061 11.8252 34.3313 20.2444 34.3313ZM19.9333 27.4869C24.4007 27.4869 28.0222 23.8653 28.0222 19.398C28.0222 14.9306 24.4007 11.3091 19.9333 11.3091C15.466 11.3091 11.8444 14.9306 11.8444 19.398C11.8444 23.8653 15.466 27.4869 19.9333 27.4869Z" fill="#F184D5"/>
         <path d="M13.8092 0L33.7204 34.4871L27.254 38.2204L7.34292 3.73333L13.8092 0Z" fill="#66C7F1"/>
         <path d="M31.042 29.8482C29.2811 31.615 27.0893 32.9522 24.6376 33.6888L21.0155 27.4151C23.6909 27.0574 25.9524 25.392 27.1361 23.0829L31.042 29.8482Z" fill="#ACA6E3"/>

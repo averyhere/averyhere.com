@@ -71,7 +71,7 @@ body {
 }
 
 .button {
-  @apply flex w-max gap-1 items-center p-2 relative text-white text-shadow-black cursor-pointer;
+  @apply flex w-max gap-1 items-center p-2 relative text-white text-shadow-black cursor-pointer mr-2 mb-2;
 }
 
 .button:before,
@@ -103,9 +103,6 @@ body {
 
 .button:active:after {
   @apply top-2 left-2;
-}
-
-.nav-menu {
 }
 
 .nav-item {

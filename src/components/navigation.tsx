@@ -5,20 +5,20 @@ import { usePathname } from "next/navigation";
 
 export const Navigation = ({ variant}: { variant?: string }) => {
   const pathname = usePathname();
-  const classes = variant === 'horizontal' ? 'text-xl md:text-2xl flex flex-wrap flex-col flex-row gap-8 mt-8 justify-around' : 'text-4xl flex flex-wrap flex-col gap-4'
+  const classes = variant === 'horizontal' ? 'grid grid-cols-1 md:grid-cols-4 max-w-max m-auto gap-4' : 'flex flex-row flex-wrap gap-4 m-auto justify-center'
   return (
-    <nav className="nav-menu max-w-max mx-auto">
+    <nav className="w-full text-center">
       <ul className={classes}>
-        <li>
+        <li className="w-auto md:w-full text-xl">
           <Link href="/about" className={`nav-item hover:underline ${pathname === '/about' ? 'active' : 'inactive'}`}>about</Link>
         </li>
-        <li>
+        <li className="w-auto md:w-full text-xl">
           <Link href="/experience" className={`nav-item hover:underline ${pathname === '/experience' ? 'active' : 'inactive'}`}>experience</Link>
         </li>
-        <li>
+        <li className="w-auto md:w-full text-xl">
           <Link href="/projects" className={`nav-item hover:underline ${pathname === '/projects' ? 'active' : 'inactive'}`}>projects</Link>
         </li>
-        <li>
+        <li className="w-auto md:w-full text-xl">
           <Link href="/contact" className={`nav-item hover:underline ${pathname === '/contact' ? 'active' : 'inactive'}`}>contact</Link>
         </li>
       </ul>
