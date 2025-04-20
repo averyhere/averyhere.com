@@ -4,6 +4,12 @@ import {
   PiEnvelopeDuotone
 } from "react-icons/pi"
 import { HiOutlineExternalLink } from "react-icons/hi"
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Contact Avery Ondo',
+  description: 'Ways to get in touch with Avery Ondo.',
+}
 
 export default function Page() {
   return (

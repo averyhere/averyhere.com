@@ -1,97 +1,39 @@
-import Link from "next/link"
+import { createClient } from '@utils/supabase/server';
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Avery Ondo\'s Past Work Experience',
+  description: 'Learn a little about Avery Ondo\'s past work experience.',
+}
 
-export default function Page() {
+export default async function Page() {
+  const supabase = await createClient();
+  const { data: work_experience } = await supabase.from("work_experience").select();
 
   return (
     <div className="flex flex-col gap-8 md:mt-20">
       <h2 className="text-3xl font-bold">
         experience
       </h2>
-      
-      <article>
-        <header className="pb-2 mb-2">
-          <div>
-            <h4 className="text-2xl">
-              EverCommerce
-            </h4>
-            <span className="text-2xl inline text-purple">&nbsp;/&zwj;/&nbsp;</span>
-            <span className="inline text-lg font-light">Director, Web Development</span>
-          </div>
-          <p>August 2019 - January 2025 | Denver, CO</p>
-        </header>
-        <div>
-          <p className="mb-2">
-            <strong>Team Building and Leadership :</strong> Established and grew the centralized web development team from scratch.
-          </p>
-          <p className="mb-2">
-            <strong> Collaboration :</strong> Partnered with various departments to build, manage, and maintain approximately 50 WordPress websites.
-          </p>
-          <p className="mb-2">
-            <strong>Technical Solutions :</strong> Developed and implemented solutions for web analytics, lead attribution tracking, and conversion rate optimization.
-          </p>
-          <p className="mb-2">
-            <strong>Innovation :</strong> Pioneered the development of scalable headless WordPress websites, creating comprehensive documentation and an RFC process to facilitate team engagement.
-          </p>
-          <p className="mb-2">
-            <strong>Mentorship :</strong> Guided and trained team members from junior to senior levels on the latest web technologies, including React/Next.js, and marketing technologies like Marketo.
-          </p>
-          <Link className="button" href="/experience/ec/">View accomplishments</Link>
+
+      {/* <!-- Created By Joker Banny --> */}
+      <div className="flex items-center justify-center pl-3">
+        <div className="space-y-6 border-l-2 border-dashed">
+
+          {work_experience?.map((entry) => (
+            <div className="relative w-full" key={entry.id}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="absolute -top-0.5 z-10 -ml-[15px] h-7 w-7 rounded-full text-purple bg-white dark:bg-black">
+                <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clipRule="evenodd" />
+              </svg>
+              <div className="ml-6">
+                <h4 className="font-bold"><span className="text-xl">{entry.title}</span> <span className="sr-only">at</span> <span className="text-purple not-sr-only">@</span> <span className="font-light">{entry.company_name}</span></h4>
+                <p className="mt-1 block text-sm font-light">{entry.start_date} - {entry.end_date}</p>
+                <div className="mt-2 prose-sm prose dark:prose-invert" dangerouslySetInnerHTML={{__html: entry.overview}} />
+              </div>
+            </div>
+          ))}
         </div>
-      </article>
-      
-      <article>
-        <header className="pb-2 mb-2">
-          <div>
-            <h4 className="text-2xl">
-              Intelligent Demand
-            </h4>
-            <span className="text-2xl inline text-purple">&nbsp;/&zwj;/&nbsp;</span>
-            <span className="inline text-lg font-light">Senior Front-End Developer</span>
-          </div>
-          <p>February 2015 - August 2019 | Denver, CO</p>
-        </header>
-        <div>
-          <p className="mb-2">
-            Owned the conversion of original visual design concepts to bulletproof front-end implementations. Built, tested and deployed client websites, as well as multi-channel campaigns in marketing automation platforms.
-          </p>
-        </div>
-      </article>
-      
-      <article>
-        <header className="pb-2 mb-2">
-          <div>
-            <h4 className="text-2xl">
-              Grayson Sky
-            </h4>
-            <span className="text-2xl inline text-purple">&nbsp;/&zwj;/&nbsp;</span>
-            <span className="inline text-lg font-light">Lead Web Developer</span>
-          </div>
-          <p>May 2014 - October 2015 | Philadelphia, PA</p>
-        </header>
-        <div>
-          <p className="mb-2">
-            Developed and managed multiple projects. Managed the development team, produced and presented scopes to clients. Assisted in the design of websites and other branding aspects.
-          </p>
-        </div>
-      </article>
-      
-      <article>
-        <header className="pb-2 mb-2">
-          <div>
-            <h4 className="text-2xl">
-              Freelance
-            </h4>
-            <span className="text-2xl inline text-purple">&nbsp;/&zwj;/&nbsp;</span>
-            <span className="inline text-lg font-light">Web Developer</span>
-          </div>
-          <p>December 2010 - May 2014 | Philadelphia, PA</p>
-        </header>
-        <div>
-          <p className="mb-2">
-            Designed and developed custom websites for small businesses. Worked with key stakeholders to establish timelines, milestones, and objectives.
-          </p>
-        </div>
-      </article>
+      </div>
 
     </div>
     
