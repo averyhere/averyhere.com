@@ -1,6 +1,8 @@
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'
+
+export const dynamic = 'force-static';
  
 export const metadata: Metadata = {
   title: 'Avery Ondo\'s Projects',
@@ -19,14 +21,14 @@ export default async function Page() {
           <article className="py-8" key={entry.id}>
             <header className="pb-2 mb-2">
               <div>
-                <h4 className="text-2xl">
+                <h3 className="text-2xl">
                   {entry.title}
-                </h4>
+                </h3>
                 <span className="text-2xl inline text-purple">&nbsp;/&zwj;/&nbsp;</span>
                 <span className="inline text-lg font-light">{entry.subtitle}</span>
               </div>
               </header>
-              <div className="prose dark:prose-invert" dangerouslySetInnerHTML={{__html: entry.overview}} />
+              <div className="prose prose-sm dark:prose-invert" dangerouslySetInnerHTML={{__html: entry.overview}} />
               {entry.link_url && entry.link_text && (
                 <div className="mt-6 flex justify-end">
                   <a className="button" target="_blank" href={entry.link_url}>{entry.link_text} <HiOutlineExternalLink className="" /></a>
