@@ -1,5 +1,11 @@
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { createClient } from '@utils/supabase/server';
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Avery Ondo\'s Projects',
+  description: 'Check out some of Avery Ondo\'s selected projects.',
+}
 
 export default async function Page() {
   const supabase = await createClient();

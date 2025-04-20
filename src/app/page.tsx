@@ -1,6 +1,12 @@
 import { AveryOndoLogo } from "@/components/logos"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Avery Ondo',
+  description: 'Avery Ondo\'s personal website.',
+}
 
 export default function Home() {
   return (

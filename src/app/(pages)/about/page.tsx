@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'About Avery Ondo',
+  description: 'Learn a little about Avery Ondo.',
+}
+
 export default function Page() {
   return (
     <>
