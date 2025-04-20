@@ -10,16 +10,16 @@ export const Navigation = ({ variant}: { variant?: string }) => {
     <nav className="w-full text-center">
       <ul className={classes}>
         <li className="w-auto md:w-full text-xl">
-          <Link href="/about" className={`nav-item hover:underline ${pathname === '/about' ? 'active' : 'inactive'}`}>about</Link>
+          <Link href="/about" className={`nav-item hover:underline ${pathname === '/about/' ? 'active' : 'inactive'}`}>about</Link>
         </li>
         <li className="w-auto md:w-full text-xl">
-          <Link href="/experience" className={`nav-item hover:underline ${pathname === '/experience' ? 'active' : 'inactive'}`}>experience</Link>
+          <Link href="/experience" className={`nav-item hover:underline ${pathname === '/experience/' ? 'active' : 'inactive'}`}>experience</Link>
         </li>
         <li className="w-auto md:w-full text-xl">
-          <Link href="/projects" className={`nav-item hover:underline ${pathname === '/projects' ? 'active' : 'inactive'}`}>projects</Link>
+          <Link href="/projects" className={`nav-item hover:underline ${pathname === '/projects/' ? 'active' : 'inactive'}`}>projects</Link>
         </li>
         <li className="w-auto md:w-full text-xl">
-          <Link href="/contact" className={`nav-item hover:underline ${pathname === '/contact' ? 'active' : 'inactive'}`}>contact</Link>
+          <Link href="/contact" className={`nav-item hover:underline ${pathname === '/contact/' ? 'active' : 'inactive'}`}>contact</Link>
         </li>
       </ul>
     </nav>
