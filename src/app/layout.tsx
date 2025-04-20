@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`relative ${lexendDeca.variable} ${lexendDeca.className}`}
       >
-        <a href="#skip-to-main-content" className="sr-only">Skip to main content</a>
+        <a href="#main-content" className="sr-only">Skip to main content</a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
