@@ -15,7 +15,7 @@ export default async function Page() {
   return (
     <div className="flex flex-col gap-8 md:mt-20">
       <h2 className="text-3xl font-bold">
-        experience
+        Work Experience
       </h2>
 
       {/* <!-- Created By Joker Banny --> */}
@@ -29,7 +29,7 @@ export default async function Page() {
               </svg>
               <div className="ml-6">
                 <div>
-                  <h3 className="font-bold inline"><span className="text-xl">{entry.title}</span></h3>
+                  <h3 className="font-bold inline text-xl">{entry.title}</h3>
                   <span className="inline-block"><span className="sr-only">at</span>&nbsp;<span className="text-purple not-sr-only">@</span>&nbsp;<span className="font-light">{entry.company_name}</span></span>
                 </div>
                 <p className="mt-1 block text-sm font-light">{entry.start_date} - {entry.end_date}</p>
