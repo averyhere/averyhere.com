@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h2 className="mb-4 text-3xl font-bold">about me</h2>
+      <h2 className="mb-4 text-3xl font-bold">👋 Hi, I'm Avery</h2>
       <p className="my-2">
         Web developer and marketer by profession, adventurer by passion.
       </p>
