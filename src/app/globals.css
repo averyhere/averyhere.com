@@ -41,6 +41,26 @@
   --color-bright-purple: var(--bright-purple);
 }
 
+@media print {
+  .dark {
+      --white: #ffffff;
+      --black: #171717;
+      --pink: #F184D5;
+      --blue: #66C7F1;
+      --purple: #ACA6E3;
+      --bright-purple: #A41EF1;
+  
+      --color-background: var(--white);
+      --color-foreground: var(--black);
+  
+      --navitem-active: var(--bright-purple);
+  
+      --button-bg: var(--bright-purple);
+      --button-shadow: var(--purple);
+      --button-text: var(--white);
+  }
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);

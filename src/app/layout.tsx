@@ -28,14 +28,14 @@ export default function RootLayout({
       <body
         className={`relative ${lexendDeca.variable} ${lexendDeca.className}`}
       >
-        <a href="#main-content" className="sr-only focus:not-sr-only !fixed top-0 left-0 bg-white text-black px-4 py-2 rounded-md z-50">Skip to main content</a>
+        <a href="#main-content" className="sr-only focus:not-sr-only !fixed top-0 left-0 bg-white text-black px-4 py-2 rounded-md z-50 print:hidden">Skip to main content</a>
         <ThemeProvider>
           <ThemeToggle />
           <div className="flex flex-col w-full max-w-4xl m-auto">
             <div className="grow h-full flex flex-col md:flex-row gap-8 items-center p-4">
               {children}
             </div>
-            <p className="text-center grow-0"><small>© Avery Ondo</small></p>
+            <p className="text-center grow-0 print:hidden"><small>© Avery Ondo</small></p>
           </div>
         </ThemeProvider>
         <Analytics />
