@@ -24,9 +24,9 @@ export const Button: React.FC<ButtonProps> = ({
   
   if (icon){
     const Icon:IconType = icon;
-    let sizeClass = size === 'md' ? 'size-8' : size === 'sm' ? 'size-4' : 'size-10';
+    const sizeClass = size === 'md' ? 'size-8' : size === 'sm' ? 'size-4' : 'size-10';
     return (
-      <Link href={href} className={`${styles.button} ${size !== 'md' ? styles[`button-${size}`] : ''}`} {... (external ? { target: "_blank" } : {} )} {...props}>
+      <Link href={href} className={`${styles.button} ${size !== 'md' ? styles[`button-${size}`] : ''} ${className}`} {... (external ? { target: "_blank" } : {} )} {...props}>
         {iconPosition === 'start' && (<Icon className={sizeClass} />)} 
         {children}
         {iconPosition === 'end' && (<Icon className={sizeClass} />)} 
