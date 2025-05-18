@@ -15,7 +15,7 @@ export default function Home() {
         <AveryOndoLogo className="w-full h-full" />
         <h1 className="sr-only">Avery Ondo</h1>
       </Link>
-      <p className="text-pink">adventurer, web developer, marketer</p>
+      <p className="text-bright-purple dark:text-pink">adventurer, web developer, marketer</p>
       <Navigation variant="horizontal" />
     </main>
   );
