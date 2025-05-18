@@ -10,11 +10,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div id="main-content" className="h-full w-full flex flex-col min-h-dvh gap-4 items-center justify-center p-4">
+    <main id="main-content" className="h-full w-full flex flex-col min-h-dvh gap-4 items-center justify-center p-4">
       <Link href="/" className="w-full h-auto max-w-lg">
         <AveryOndoLogo className="w-full h-full" />
+        <h1 className="sr-only">Avery Ondo</h1>
       </Link>
+      <p className="text-pink">adventurer, web developer, marketer</p>
       <Navigation variant="horizontal" />
-    </div>
+    </main>
   );
 }
