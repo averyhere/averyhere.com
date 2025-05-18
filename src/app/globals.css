@@ -2,20 +2,11 @@
 @plugin "@tailwindcss/typography";
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-  --white: #ffffff;
-  --black: #171717;
-  --pink: #F184D5;
-  --blue: #66C7F1;
-  --purple: #ACA6E3;
-  --bright-purple: #A41EF1;
-  --nav-item-active: var(--pink);
-}
-
+/* Tailwind Config */
 @layer base {
   :root {
-    --color-background: var(--white);
-    --color-foreground: var(--black);
+    --color-background: #ffffff;
+    --color-foreground: #171717;
 
     --white: #ffffff;
     --black: #171717;
@@ -37,60 +28,53 @@
   --color-bright-purple: var(--bright-purple);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--bright-purple);
-    --foreground: #ffffff;
-    --color-background: var(--bright-purple);
-    --color-foreground: #ffffff;
-    --nav-item-active: var(--blue);
-  }
-} */
-
 body {
   background: var(--color-background);
   color: var(--color-foreground);
 }
 
-.work-slider {
+/* Slider (not in use) */
+/* .slider {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 }
 
-.work-slider .slide {
+.slider .slide {
   grid-row-start: 1;
   grid-column-start: 1;
   opacity: 0;
-  transition: all ease-in-out 200ms;
+  transition: all ease-in-out 400ms;
   background: var(--background);
   height: max-content;
+  max-height: 0;
 }
 
-.work-slider .slide.active {
+.slider .slide.active {
   opacity: 1;
-}
+  max-height: 1000px;
+} */
 
+/* Buttons */
 .button {
   @apply flex w-max gap-1 items-center p-2 relative text-white cursor-pointer mr-2 mb-2;
 }
 
 .button:before,
 .button:after {
-  content: '';
   @apply block w-full h-full absolute top-0 left-0;
+  content: '';
   transition: all ease-in-out 200ms;
 }
 
-
 .button:before {
   background-color: var(--pink);
- z-index: -1;
+  z-index: -1;
 }
 
 .button:after {
-  background-color: var(--blue);
   @apply top-1 left-1;
+  background-color: var(--blue);
   z-index: -2;
 }
 
@@ -106,14 +90,19 @@ body {
   @apply top-2 left-2;
 }
 
+/* Nav items */
 .nav-item {
   text-underline-offset: .5ch;
   color: var(--color-foreground);
-  text-decoration-color: #66C7F1;
+  text-decoration-color: var(--blue);
 }
 
 .nav-item.active {
-  color: var(--nav-item-active);
   @apply font-bold;
+  color: var(--pink);
 }
 
+/* Focus state */
+:focus-visible {
+  outline: var(--bright-purple) auto 1px;
+}
