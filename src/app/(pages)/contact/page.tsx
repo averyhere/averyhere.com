@@ -1,7 +1,8 @@
 import { 
   PiLinkedinLogoDuotone,
   PiGithubLogoDuotone,
-  PiEnvelopeDuotone
+  PiEnvelopeDuotone,
+  PiButterflyDuotone
 } from "react-icons/pi"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import type { Metadata } from 'next'
@@ -21,20 +22,25 @@ export default function Page() {
         <p className="mb-4 text-xl text-center">Here&apos;s where you can find me:</p>
       </header>
 
-      <ul className="grid grid-cols-2 md:grid-cols-3 items-center justify-center">
+      <ul className="flex flex-wrap gap-4 items-center justify-center">
         <li>
-          <a href="https://www.linkedin.com/in/averyondo/" target="_blank" className="flex flex-col items-center justify-center transition-all duration-200 hover:text-blue">
-            <PiLinkedinLogoDuotone className="size-24 max-w-full" /> <span className="flex">LinkedIn <HiOutlineExternalLink /></span>
+          <a href="https://www.linkedin.com/in/averyondo/" target="_blank" className="button">
+            <PiLinkedinLogoDuotone className="size-8" /> LinkedIn
           </a>
         </li>
         <li>
-          <a href="https://github.com/averyhere" target="_blank" className="flex flex-col items-center justify-center transition-all duration-200 hover:text-blue">
-            <PiGithubLogoDuotone className="size-24 max-w-full" /> <span className="flex">GitHub <HiOutlineExternalLink /></span>
+          <a href="https://github.com/averyhere" target="_blank" className="button">
+            <PiGithubLogoDuotone className="size-8" /> GitHub
           </a>
         </li>
         <li>
-          <a href='mailto:hello@averyhere.com' target="_blank" className="flex flex-col items-center justify-center transition-all duration-200 hover:text-blue">
-            <PiEnvelopeDuotone className="size-24 max-w-full" /> <span className="flex">Email <HiOutlineExternalLink /></span>
+          <a href='https://bsky.app/profile/averyhere.com' target="_blank" className="button">
+            <PiButterflyDuotone className="size-8" /> Bluesky
+          </a>
+        </li>
+        <li>
+          <a href='mailto:hello@averyhere.com' target="_blank" className="button">
+            <PiEnvelopeDuotone className="size-8" /> Email
           </a>
         </li>
       </ul>
