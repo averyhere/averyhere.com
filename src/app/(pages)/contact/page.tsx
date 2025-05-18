@@ -4,7 +4,6 @@ import {
   PiEnvelopeDuotone,
   PiButterflyDuotone
 } from "react-icons/pi"
-import { HiOutlineExternalLink } from "react-icons/hi"
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
