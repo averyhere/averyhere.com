@@ -1,23 +1,23 @@
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'About Avery Ondo',
-  description: 'Learn a little about Avery Ondo.',
+  title: 'About Avery',
+  description: 'Learn a little about Avery.',
 }
 
 export default function Page() {
   return (
-    <>
-      <h2 className="mb-4 text-3xl font-bold">👋 Hi, I'm Avery</h2>
+    <article>
+      <h1 className="mb-4 text-3xl font-bold">👋 Hi, I'm Avery</h1>
       <p className="my-2">
         Web developer and marketer by profession, adventurer by passion.
       </p>
       <p className="my-2">
-        With more than a decade of experience in web development, I have spent my career strategizing, building, scaling, and optimizing both the technical aspects of modern websites as well as the  marketing focused web development, CRO, and analytics teams behind them. Having equal responsibilities as a leader, marketer, and technologist, I work in the intersection of creativity, analytics, and code.
+        With more than a decade of experience in web development, I have spent my career strategizing, building, scaling, and optimizing both the technical aspects of modern websites as well as the marketing focused web development, CRO, and analytics teams behind them. Having equal responsibilities as a leader, marketer, and technologist, I work in the intersection of creativity, analytics, and code.
       </p>
       <p className="my-2">
         When I'm not nerding out on web and marketing technologies you will likely find me hiking, biking, camping, or skiing in Colorado's beautiful Rocky Mountains.
       </p>
-    </>
+    </article>
   );
 }

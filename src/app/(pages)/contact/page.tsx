@@ -7,17 +7,19 @@ import { HiOutlineExternalLink } from "react-icons/hi"
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'Contact Avery Ondo',
-  description: 'Ways to get in touch with Avery Ondo.',
+  title: 'Contact Avery',
+  description: 'Ways to get in touch with Avery.',
 }
 
 export default function Page() {
   return (
-    <>
-      <h2 className="mb-4 text-3xl text-center font-bold">
-        Looking to get in touch?
-      </h2>
-      <p className="mb-4 text-xl text-center">Here&apos;s where you can find me:</p>
+    <article>
+      <header>
+        <h1 className="mb-4 text-3xl text-center font-bold">
+          Looking to get in touch?
+        </h1>
+        <p className="mb-4 text-xl text-center">Here&apos;s where you can find me:</p>
+      </header>
 
       <ul className="grid grid-cols-2 md:grid-cols-3 items-center justify-center">
         <li>
@@ -36,6 +38,6 @@ export default function Page() {
           </a>
         </li>
       </ul>
-    </>
+    </article>
   );
 }
