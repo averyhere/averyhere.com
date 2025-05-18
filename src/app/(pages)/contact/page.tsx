@@ -5,6 +5,7 @@ import {
   PiButterflyDuotone
 } from "react-icons/pi"
 import type { Metadata } from 'next'
+import { Button } from "@/components/button"
  
 export const metadata: Metadata = {
   title: 'Contact Avery',
@@ -23,24 +24,40 @@ export default function Page() {
 
       <ul className="flex flex-wrap gap-4 items-center justify-center">
         <li>
-          <a href="https://www.linkedin.com/in/averyondo/" target="_blank" className="button">
-            <PiLinkedinLogoDuotone className="size-8" /> LinkedIn
-          </a>
+          <Button
+            href="https://www.linkedin.com/in/averyondo/" 
+            icon={PiLinkedinLogoDuotone}
+            external
+          >
+            LinkedIn
+          </Button>
         </li>
         <li>
-          <a href="https://github.com/averyhere" target="_blank" className="button">
-            <PiGithubLogoDuotone className="size-8" /> GitHub
-          </a>
+          <Button
+            href="https://github.com/averyhere"
+            icon={PiGithubLogoDuotone}
+            external
+          >
+            GitHub
+          </Button>
         </li>
         <li>
-          <a href='https://bsky.app/profile/averyhere.com' target="_blank" className="button">
-            <PiButterflyDuotone className="size-8" /> Bluesky
-          </a>
+          <Button
+            href="https://bsky.app/profile/averyhere.com"
+            icon={PiButterflyDuotone}
+            external
+          >
+            Bluesky
+          </Button>
         </li>
         <li>
-          <a href='mailto:hello@averyhere.com' target="_blank" className="button">
-            <PiEnvelopeDuotone className="size-8" /> Email
-          </a>
+          <Button
+            href="mailto:hello@averyhere.com"
+            icon={PiEnvelopeDuotone}
+            external
+          >
+            Email
+          </Button>
         </li>
       </ul>
     </article>

@@ -1,6 +1,7 @@
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'
+import { Button } from '@/components/button'
 
 export const dynamic = 'force-static';
  
@@ -26,7 +27,15 @@ export default async function Page() {
             <div className="prose prose-sm dark:prose-invert" dangerouslySetInnerHTML={{__html: entry.overview}} />
             {entry.link_url && entry.link_text && (
               <div className="mt-6 flex justify-end">
-                <a className="button" target="_blank" href={entry.link_url}>{entry.link_text} <HiOutlineExternalLink className="" /></a>
+                <Button
+                  href={entry.link_url}
+                  size="sm"
+                  icon={HiOutlineExternalLink}
+                  iconPosition="end"
+                  external
+                >
+                  {entry.link_text}
+                </Button>
               </div>
             )}
           </article>
