@@ -57,7 +57,7 @@ body {
 
 /* Buttons */
 .button {
-  @apply flex w-max gap-1 items-center p-2 relative text-white cursor-pointer mr-2 mb-2;
+  @apply flex w-max gap-1 items-center p-2 relative text-black cursor-pointer mr-2 mb-2;
 }
 
 .button:before,
