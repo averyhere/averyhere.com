@@ -5,8 +5,6 @@
 /* Tailwind Config */
 @layer base {
   :root {
-    --color-background: #ffffff;
-    --color-foreground: #171717;
 
     --white: #ffffff;
     --black: #171717;
@@ -14,10 +12,25 @@
     --blue: #66C7F1;
     --purple: #ACA6E3;
     --bright-purple: #A41EF1;
+
+    --color-background: var(--white);
+    --color-foreground: var(--black);
+
+    --navitem-active: var(--bright-purple);
+
+    --button-bg: var(--bright-purple);
+    --button-shadow: var(--purple);
+    --button-text: var(--white);
   }
   .dark {
     --color-background: var(--black);
     --color-foreground: var(--white);
+
+    --navitem-active: var(--pink);
+
+    --button-bg: var(--pink);
+    --button-shadow: var(--blue);
+    --button-text: var(--black);
   }
 }
 
@@ -57,7 +70,8 @@ body {
 
 /* Buttons */
 .button {
-  @apply flex w-max gap-1 items-center p-2 relative text-black cursor-pointer mr-2 mb-2;
+  @apply flex w-max gap-1 items-center p-2 relative cursor-pointer mr-2 mb-2;
+  color: var(--button-text);
 }
 
 .button:before,
@@ -68,18 +82,18 @@ body {
 }
 
 .button:before {
-  background-color: var(--pink);
+  background-color: var(--button-bg);
   z-index: -1;
 }
 
 .button:after {
   @apply top-1 left-1;
-  background-color: var(--blue);
+  background-color: var(--button-shadow);
   z-index: -2;
 }
 
 .dark .button {
-  @apply text-white;
+  color: var(--button-text);
 }
 
 .button:hover:after {
@@ -98,8 +112,8 @@ body {
 }
 
 .nav-item.active {
-  @apply font-bold;
-  color: var(--pink);
+  @apply font-bold underline;
+  color: var(--navitem-active);
 }
 
 /* Focus state */
