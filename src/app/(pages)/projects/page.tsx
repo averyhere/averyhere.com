@@ -1,7 +1,6 @@
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'
-import { Slider } from "@/components/content-slider"
 
 export const dynamic = 'force-static';
  
@@ -17,7 +16,6 @@ export default async function Page() {
     <section className="flex flex-col md:mt-20">
       <h2 className="text-3xl font-bold">Selected Projects</h2>
 
-      {/* <Slider data={projects} /> */}
       <div className="divide-y divide-purple divide-dashed">
         {projects?.map((entry) => (
           <article className="py-8" key={entry.id}>
