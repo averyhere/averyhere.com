@@ -68,42 +68,6 @@ body {
   max-height: 1000px;
 } */
 
-/* Buttons */
-.button {
-  @apply flex w-max gap-1 items-center p-2 relative cursor-pointer mr-2 mb-2;
-  color: var(--button-text);
-}
-
-.button:before,
-.button:after {
-  @apply block w-full h-full absolute top-0 left-0;
-  content: '';
-  transition: all ease-in-out 200ms;
-}
-
-.button:before {
-  background-color: var(--button-bg);
-  z-index: -1;
-}
-
-.button:after {
-  @apply top-1 left-1;
-  background-color: var(--button-shadow);
-  z-index: -2;
-}
-
-.dark .button {
-  color: var(--button-text);
-}
-
-.button:hover:after {
-  @apply top-1.5 left-1.5;
-}
-
-.button:active:after {
-  @apply top-2 left-2;
-}
-
 /* Nav items */
 .nav-item {
   text-underline-offset: .5ch;
