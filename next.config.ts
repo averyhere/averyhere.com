@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/bio',
-        destination: '/about',
+        destination: '/about/',
         permanent: true,
       },
       {
@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/my-work',
-        destination: '/experience',
+        destination: '/experience/',
         permanent: true,
       },
       {
