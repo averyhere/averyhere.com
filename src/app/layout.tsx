@@ -32,7 +32,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeToggle />
           <div className="flex flex-col w-full max-w-4xl m-auto">
-            <div className="grow h-full flex flex-col md:flex-row gap-8 items-center p-4">
+            <div className="grow h-full flex flex-col md:flex-row gap-8 items-center px-2 pt-4 md:pt-0 md:px-4">
               {children}
             </div>
             <p className="text-center grow-0 print:hidden"><small>© Avery Ondo</small></p>
