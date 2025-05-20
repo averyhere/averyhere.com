@@ -57,7 +57,7 @@ const RichTextEditor = forwardRef<RichTextEditorHandle>((_, ref) => {
   }));
 
   return (
-    <div ref={editorRef} style={{ minHeight: '300px'}} className='bg-purple/20' />
+    <div ref={editorRef} style={{ minHeight: '300px'}} className='bg-purple/20 dark:!border-purple' />
   );
 });
 

@@ -19,31 +19,31 @@ export const ProfileForm = ({data}: {data: any}) => {
 
   return (
     <form className="w-full grid gap-4 md:grid-cols-2">
-      <fieldset className='grid grid-col-1 gap-4 border border-purple p-2'>
+      <fieldset className='grid grid-col-1 gap-4 border border-purple p-4 pt-2'>
         <legend className="text-xl">Update contact info</legend>
         <div className="flex flex-col">
           <label>Display name</label>
-          <input name="display_name" type="text" className="bg-purple/20 p-2" defaultValue={data.user_metadata.display_name} required />
+          <input name="display_name" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data.user_metadata.display_name} required />
         </div>
 
         <div className="flex flex-col">
           <label>Email Address</label>
-          <input name="email" type="email" className="bg-purple/20 p-2" defaultValue={data.email} required />
+          <input name="email" type="email" className="bg-purple/20 p-2 border border-purple" defaultValue={data.email} required />
         </div>
 
       </fieldset>
 
-      <fieldset className='grid grid-col-1 gap-4 border border-purple p-2'>
+      <fieldset className='grid grid-col-1 gap-4 border border-purple p-4 pt-2'>
         <legend className="text-xl">Change password</legend>
 
         <div className="flex flex-col">
           <label>New Password</label>
-          <input name="password" type="new_password" className="bg-purple/20 p-2" required={isPasswordChange} onChange={(e) => checkIsasswordChange(e)}/>
+          <input name="password" type="new_password" className="bg-purple/20 p-2 border border-purple" required={isPasswordChange} onChange={(e) => checkIsasswordChange(e)}/>
         </div>
 
         <div className={`flex flex-col ${isPasswordChange ? 'opacity-100' : 'opacity-50'}`}>
           <label>Confirm Password</label>
-          <input name="password" type="password_confirm" className="bg-purple/20 p-2" required={isPasswordChange} disabled={!isPasswordChange} />
+          <input name="password" type="password_confirm" className="bg-purple/20 p-2 border border-purple" required={isPasswordChange} disabled={!isPasswordChange} />
         </div>
 
       </fieldset>

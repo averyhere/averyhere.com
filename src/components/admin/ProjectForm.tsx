@@ -45,17 +45,17 @@ export const ProjectForm = ({data}: {data?: any}) => {
       
       <div className="flex flex-col">
         <label>Slug</label>
-        <input name="slug" type="text" className="bg-purple/20 p-2" defaultValue={data?.slug} pattern="[a-z\-]+" required />
+        <input name="slug" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.slug} pattern="[a-z\-]+" required />
       </div>
       
       <div className="flex flex-col">
         <label>Title</label>
-        <input name="title" type="text" className="bg-purple/20 p-2" defaultValue={data?.title} required />
+        <input name="title" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.title} required />
       </div>
       
       <div className="flex flex-col">
         <label>Subtitle</label>
-        <input name="subtitle" type="text" className="bg-purple/20 p-2" defaultValue={data?.subtitle} required />
+        <input name="subtitle" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.subtitle} required />
       </div>
       
       <div className="flex flex-col">
@@ -63,17 +63,17 @@ export const ProjectForm = ({data}: {data?: any}) => {
         <RichTextEditor ref={ref} />
       </div>
 
-      <fieldset className='grid grid-cols-1 md:grid-cols-2 gap-4 border border-purple p-2'>
+      <fieldset className='grid grid-cols-1 md:grid-cols-2 gap-4 border border-purple p-4 pt-2'>
         <legend className="text-xl">Button Link</legend>
 
         <div className="flex flex-col">
           <label>Button Text</label>
-          <input name="link_text" type="text" className="bg-purple/20 p-2" defaultValue={data?.link_text} onChange={(e) => {if (e.target.value) {setHasButton(true)} else {setHasButton(false)}}} />
+          <input name="link_text" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.link_text} onChange={(e) => {if (e.target.value) {setHasButton(true)} else {setHasButton(false)}}} />
         </div>
 
         <div className="flex flex-col">
           <label>Button URL</label>
-          <input name="link_url" type="text" className="bg-purple/20 p-2 disabled:opacity-20" defaultValue={data?.link_url} required={hasButton} disabled={!hasButton} />
+          <input name="link_url" type="text" className="bg-purple/20 p-2 border border-purple disabled:opacity-20" defaultValue={data?.link_url} required={hasButton} disabled={!hasButton} />
         </div>
       </fieldset>
 

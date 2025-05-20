@@ -42,30 +42,30 @@ export const ExperienceForm = ({data}: {data?: any}) => {
       
       <div className="flex flex-col">
         <label>Slug</label>
-        <input name="slug" type="text" className="bg-purple/20 p-2" defaultValue={data?.slug} pattern="[a-z\-]+" required />
+        <input name="slug" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.slug} pattern="[a-z\-]+" required />
       </div>
       
       <div className="flex flex-col">
         <label>Job Title / Position</label>
-        <input name="title" type="text" className="bg-purple/20 p-2" defaultValue={data?.title} required />
+        <input name="title" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.title} required />
       </div>
       
       <div className="flex flex-col">
         <label>Company Name</label>
-        <input name="company_name" type="text" className="bg-purple/20 p-2" defaultValue={data?.company_name} required />
+        <input name="company_name" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.company_name} required />
       </div>
 
-      <fieldset className='grid grid-cols-1 md:grid-cols-2 gap-4 border border-purple p-2'>
+      <fieldset className='grid grid-cols-1 md:grid-cols-2 gap-4 border border-purple p-4 pt-2'>
         <legend className="text-xl">Timeframe</legend>
 
         <div className="flex flex-col">
           <label>Start Date</label>
-          <input name="start_date" type="text" className="bg-purple/20 p-2" defaultValue={data?.start_date} required />
+          <input name="start_date" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.start_date} required />
         </div>
 
         <div className="flex flex-col">
           <label>End Date</label>
-          <input name="end_date" type="text" className="bg-purple/20 p-2 disabled:opacity-20" defaultValue={data?.end_date} required />
+          <input name="end_date" type="text" className="bg-purple/20 p-2 border border-purple" defaultValue={data?.end_date} required />
         </div>
       </fieldset>
       
