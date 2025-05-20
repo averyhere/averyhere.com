@@ -2,7 +2,7 @@ import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'
 import Link from "next/link";
 
-export const dynamic = 'force-static';
+export const revalidate = 3600;
  
 export const metadata: Metadata = {
   title: 'Avery\'s Past Work Experience',
