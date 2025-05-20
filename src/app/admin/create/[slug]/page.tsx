@@ -21,10 +21,7 @@ export default async function PrivatePage({
   if (error || !data?.user) {
     redirect('/admin/')
   }
-  
-  console.log("🚀 ~ slug:", slug)
-  
-  
+    
   return (
     <>
       <AdminNav />

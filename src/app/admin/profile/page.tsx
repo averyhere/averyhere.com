@@ -13,7 +13,6 @@ export default async function PrivatePage() {
   const supabase = await createClient()
   const { data, error } = await supabase.auth.getUser()
 
-  console.log("🚀 ~ PrivatePage ~ data:", data.user)
   if (error || !data?.user) {
     redirect('/admin/')
   }
