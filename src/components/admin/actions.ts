@@ -33,21 +33,21 @@ export async function updateProfile(formData: FormData) {
 
   const { error } = await supabase.auth.updateUser({data})
 
-  // console.log("🚀 ~ login ~ error:", error)
   if (error) {
-    redirect('/error/')
+    redirect('/admin/profile/?success=false')
   }
 
   revalidatePath('/admin/profile/', 'layout')
-  redirect('/admin/profile/')
+  redirect('/admin/profile/?success=true')
 }
 
-export async function updateProject(formData: FormData) {
+export async function upsertProject(formData: FormData) {
   const supabase = await createClient()
 
   // type-casting here for convenience
   // in practice, you should validate your inputs
   const projectData = {
+    id: formData.get('id') || null,
     slug: formData.get('slug') as string,
     title: formData.get('title') as string,
     subtitle: formData.get('subtitle') as string,
@@ -55,17 +55,42 @@ export async function updateProject(formData: FormData) {
     link_text: formData.get('link_text') as string,
     link_url: formData.get('link_url') as string,
   }
-  console.log("🚀 ~ updateProfile ~ projectData:", projectData)
 
   const { data, error } = await supabase.from('projects').upsert(projectData).select();
   
   if (error) {
-    console.log("🚀 ~ login ~ error:", error)
-    redirect('/admin/create/project/?success=false')
+    if (projectData.id) {
+      redirect(`/admin/edit/project/${projectData.id}/?success=false`)
+    } else {
+      redirect(`/admin/create/project/?success=false`)
+    }
   }
-  
-  console.log("🚀 ~ updateProject ~ data:", data)
 
-  revalidatePath('/admin/create/project/', 'layout')
-  redirect('/admin/create/project/?success=true')
+  revalidatePath(`/admin/edit/project/${projectData.id}/`, 'layout')
+  redirect(`/admin/edit/project/${projectData.id}/?success=true&action=${projectData.id ? 'update' : 'insert'}`)
+}
+
+export async function deleteProject(formData: FormData) {
+  const supabase = await createClient()
+
+  // type-casting here for convenience
+  // in practice, you should validate your inputs
+  const projectData = {
+    id: formData.get('id') || null,
+    slug: formData.get('slug') as string,
+    title: formData.get('title') as string,
+    subtitle: formData.get('subtitle') as string,
+    overview: formData.get('overview') as string,
+    link_text: formData.get('link_text') as string,
+    link_url: formData.get('link_url') as string,
+  }
+
+  const { error } = await supabase.from('projects').delete().eq('id',projectData.id);
+  
+  if (error) {
+    redirect(`/admin/edit/project/${projectData.id}/?success=false&action=delete`)
+  }
+
+  revalidatePath(`/admin/edit/project/${projectData.id}/`, 'layout')
+  redirect('/admin/create/project/?success=true&action=delete')
 }
