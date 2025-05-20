@@ -1,4 +1,4 @@
-import { AveryOndoLogo } from "@/components/logos"
+import { AveryOndoLogo } from "@/components"
 import Link from "next/link"
 import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'

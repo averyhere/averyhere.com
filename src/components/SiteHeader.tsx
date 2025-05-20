@@ -1,6 +1,5 @@
-import { AveryOndoLogo } from "@/components/logos"
+import { AveryOndoLogo, Navigation } from "@/components"
 import Link from "next/link"
-import { Navigation } from "@/components/Navigation"
 
 export const SiteHeader = async () => {
 

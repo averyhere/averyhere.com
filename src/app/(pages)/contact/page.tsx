@@ -5,7 +5,7 @@ import {
   PiButterflyDuotone
 } from "react-icons/pi"
 import type { Metadata } from 'next'
-import { Button } from "@/components/button"
+import { Button } from "@/components"
 
 export const dynamic = 'force-static';
  

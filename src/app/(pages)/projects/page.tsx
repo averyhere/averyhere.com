@@ -1,7 +1,7 @@
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'
-import { Button } from '@/components/button'
+import { Button } from '@/components'
 
 export const revalidate = 3600;
 

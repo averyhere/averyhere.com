@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
-import { AdminNav } from '@/components/AdminNav'
+import { AdminNav } from '@/components'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { PiPencilSimpleDuotone, PiPlusDuotone } from "react-icons/pi";
