@@ -1,8 +1,13 @@
 import { AveryOndoLogo } from "@/components/logos"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
+import { createClient } from '@utils/supabase/server';
 
-export const SiteHeader = () => {
+export const SiteHeader = async () => {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase.auth.getUser();
+  const isAuthenticatedUser = !!(!error && data.user)
 
   return (
     <header className="h-auto w-full md:h-dvh md:self-start md:sticky md:top-0 md:w-sm flex flex-col items-center justify-center">
@@ -10,7 +15,7 @@ export const SiteHeader = () => {
         <AveryOndoLogo className="w-full h-full" />
       </Link>
       <p className="text-bright-purple dark:text-pink text-xs mb-8">adventurer, web developer, marketer</p>
-      <Navigation />
+      <Navigation showAdminLinks={isAuthenticatedUser} />
     </header>
   )
 }
