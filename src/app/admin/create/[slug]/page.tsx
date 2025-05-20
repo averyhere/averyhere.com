@@ -31,7 +31,9 @@ export default async function PrivatePage({
       
       <h1 className="text-3xl font-bold">Add a new {slug}</h1>
 
-      <ProjectForm />
+      {slug === 'project' && (
+        <ProjectForm />
+      )}
     </>
   )
 }
