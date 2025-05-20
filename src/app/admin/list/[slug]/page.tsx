@@ -53,6 +53,7 @@ export default async function PrivatePage({
   )
 }
 
+// eslint-disable-next-line
 const ProjectList = ({projects}: {projects:any}) => {
 
   return (
@@ -61,6 +62,7 @@ const ProjectList = ({projects}: {projects:any}) => {
       <h2 className="text-3xl font-bold">All Projects</h2>
 
       <div className="divide-y divide-purple divide-dashed">
+        {/* eslint-disable-next-line */}
         {projects?.map((entry: any) => (
           <article className="py-4 relative flex justify-between" key={entry.id}>
             <div>
@@ -90,6 +92,7 @@ const ProjectList = ({projects}: {projects:any}) => {
   )
 }
 
+// eslint-disable-next-line
 const ExperienceList = ({data}: {data:any}) => {
 
   return (
@@ -98,6 +101,8 @@ const ExperienceList = ({data}: {data:any}) => {
       <h2 className="text-3xl font-bold">Work Experience</h2>
 
       <div className="divide-y divide-purple divide-dashed">
+
+        {/* eslint-disable-next-line */}
         {data?.map((entry: any) => (
           <article className="py-4 relative flex justify-between" key={entry.id}>
             <div>
