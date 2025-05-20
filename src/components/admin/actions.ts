@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
+
 import { createClient } from '@/utils/supabase/server'
 
 export async function updateProfile(formData: FormData) {
@@ -37,6 +38,7 @@ export async function updateProfile(formData: FormData) {
     redirect('/admin/profile/?success=false')
   }
 
+  revalidatePath('/admin/', 'layout')
   revalidatePath('/admin/profile/', 'layout')
   redirect('/admin/profile/?success=true')
 }
@@ -66,6 +68,7 @@ export async function upsertProject(formData: FormData) {
     }
   }
 
+  revalidatePath(`/projects/`, 'layout')
   revalidatePath(`/admin/edit/project/${projectData.id}/`, 'layout')
   redirect(`/admin/edit/project/${projectData.id}/?success=true&action=${projectData.id ? 'update' : 'insert'}`)
 }
@@ -91,6 +94,7 @@ export async function deleteProject(formData: FormData) {
     redirect(`/admin/edit/project/${projectData.id}/?success=false&action=delete`)
   }
 
+  revalidatePath(`/projects/`, 'layout')
   revalidatePath(`/admin/edit/project/${projectData.id}/`, 'layout')
   redirect('/admin/create/project/?success=true&action=delete')
 }
@@ -120,6 +124,7 @@ export async function upsertExperience(formData: FormData) {
     }
   }
 
+  revalidatePath(`/experience/`, 'layout')
   revalidatePath(`/admin/edit/experience/${data.id}/`, 'layout')
   redirect(`/admin/edit/experience/${data.id}/?success=true&action=${data.id ? 'update' : 'insert'}`)
 }
@@ -145,6 +150,7 @@ export async function deleteExperience(formData: FormData) {
     redirect(`/admin/edit/experience/${data.id}/?success=false&action=delete`)
   }
 
+  revalidatePath(`/experience/`, 'layout')
   revalidatePath(`/admin/edit/experience/${data.id}/`, 'layout')
   redirect('/admin/create/experience/?success=true&action=delete')
 }
