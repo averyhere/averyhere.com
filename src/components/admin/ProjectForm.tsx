@@ -4,7 +4,7 @@ import { upsertProject, deleteProject } from './actions'
 import { useSearchParams } from 'next/navigation'
 import buttonStyles from "@/components/button/button.module.css"
 import { useRef, useEffect, useState } from 'react';
-import RichTextEditor, { type RichTextEditorHandle } from '@/components/forms/Editor'
+import RichTextEditor, { type RichTextEditorHandle } from '@/components/RichTextEditor'
 import { PiCheckFatDuotone, PiWarningDiamondDuotone } from "react-icons/pi";
 
 export const ProjectForm = ({data}: {data?: any}) => {

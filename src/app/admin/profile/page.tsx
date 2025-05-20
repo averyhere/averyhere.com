@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
-import { AdminNav } from '@/components/admin'
+import { AdminNav } from '@/components/AdminNav'
 import { redirect } from 'next/navigation'
 import { ProfileForm } from '@/components/admin'
 

@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
 
-import ThemeToggle from "@/components/theme-toggle"
+import ThemeToggle from "@/components/ThemeToggle"
 import ThemeProvider from "@/hooks/theme-provider";
 
 const lexendDeca = Lexend_Deca({

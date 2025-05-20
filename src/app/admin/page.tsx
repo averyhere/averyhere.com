@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
 import { LoginForm } from '@/components/auth'
-import { AdminNav } from '@/components/admin'
+import { AdminNav } from '@/components/AdminNav'
 
 export const metadata: Metadata = {
   title: 'Avery Ondo',

@@ -1,6 +1,6 @@
 import { AveryOndoLogo } from "@/components/logos"
 import Link from "next/link"
-import { Navigation } from "@/components/navigation"
+import { Navigation } from "@/components/Navigation"
 import { createClient } from '@utils/supabase/server';
 
 export const SiteHeader = async () => {
