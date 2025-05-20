@@ -94,3 +94,57 @@ export async function deleteProject(formData: FormData) {
   revalidatePath(`/admin/edit/project/${projectData.id}/`, 'layout')
   redirect('/admin/create/project/?success=true&action=delete')
 }
+
+export async function upsertExperience(formData: FormData) {
+  const supabase = await createClient()
+
+  // type-casting here for convenience
+  // in practice, you should validate your inputs
+  const data = {
+    id: formData.get('id') || null,
+    slug: formData.get('slug') as string,
+    title: formData.get('title') as string,
+    company_name: formData.get('company_name') as string,
+    overview: formData.get('overview') as string,
+    start_date: formData.get('start_date') as string,
+    end_date: formData.get('end_date') as string,
+  }
+
+  const { error } = await supabase.from('projects').upsert(data).select();
+  
+  if (error) {
+    if (data.id) {
+      redirect(`/admin/edit/experience/${data.id}/?success=false&action=update`)
+    } else {
+      redirect(`/admin/create/experience/?success=false&action=insert`)
+    }
+  }
+
+  revalidatePath(`/admin/edit/experience/${data.id}/`, 'layout')
+  redirect(`/admin/edit/experience/${data.id}/?success=true&action=${data.id ? 'update' : 'insert'}`)
+}
+
+export async function deleteExperience(formData: FormData) {
+  const supabase = await createClient()
+
+  // type-casting here for convenience
+  // in practice, you should validate your inputs
+  const data = {
+    id: formData.get('id') || null,
+    slug: formData.get('slug') as string,
+    title: formData.get('title') as string,
+    company_name: formData.get('company_name') as string,
+    overview: formData.get('overview') as string,
+    start_date: formData.get('start_date') as string,
+    end_date: formData.get('end_date') as string,
+  }
+
+  const { error } = await supabase.from('projects').delete().eq('id',data.id);
+  
+  if (error) {
+    redirect(`/admin/edit/experience/${data.id}/?success=false&action=delete`)
+  }
+
+  revalidatePath(`/admin/edit/experience/${data.id}/`, 'layout')
+  redirect('/admin/create/experience/?success=true&action=delete')
+}

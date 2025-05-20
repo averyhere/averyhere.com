@@ -102,7 +102,7 @@ const ExperienceList = ({data}: {data:any}) => {
           <article className="py-4 relative flex justify-between" key={entry.id}>
             <div>
               <h2 className="font-bold text-xl mr-2">{entry.title}</h2>
-              <span className="inline text-purple font-bold">/&zwj;/</span>&nbsp;<span className="inline font-light">{entry.company_name}</span>
+              <span className="inline text-purple font-bold">@</span>&nbsp;<span className="inline font-light">{entry.company_name}</span>
             </div>
             <Link
                 href={`/admin/edit/experience/${entry.id}/`}

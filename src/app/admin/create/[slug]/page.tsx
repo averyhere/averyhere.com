@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
 import { AdminNav } from '@/components/AdminNav'
 import { redirect } from 'next/navigation'
-import { ProjectForm } from '@/components/admin'
+import { ProjectForm, ExperienceForm } from '@/components/admin'
 
 export const metadata: Metadata = {
   title: 'Avery Ondo',
@@ -30,6 +30,10 @@ export default async function PrivatePage({
 
       {slug === 'project' && (
         <ProjectForm />
+      )}
+
+      {slug === 'experience' && (
+        <ExperienceForm />
       )}
     </>
   )
