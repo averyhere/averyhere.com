@@ -8,7 +8,7 @@ export default function PagesLayout({
   return (
     <>
       <SiteHeader />
-      <main id="main-content" className="w-full h-full flex flex-col self-start mt-8 md:mt-20">
+      <main id="main-content" className="w-full h-full flex flex-col justify-center mt-8">
         {children}
       </main>
     </>
