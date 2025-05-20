@@ -41,3 +41,31 @@ export async function updateProfile(formData: FormData) {
   revalidatePath('/admin/profile/', 'layout')
   redirect('/admin/profile/')
 }
+
+export async function updateProject(formData: FormData) {
+  const supabase = await createClient()
+
+  // type-casting here for convenience
+  // in practice, you should validate your inputs
+  const projectData = {
+    slug: formData.get('slug') as string,
+    title: formData.get('title') as string,
+    subtitle: formData.get('subtitle') as string,
+    overview: formData.get('overview') as string,
+    link_text: formData.get('link_text') as string,
+    link_url: formData.get('link_url') as string,
+  }
+  console.log("🚀 ~ updateProfile ~ projectData:", projectData)
+
+  const { data, error } = await supabase.from('projects').upsert(projectData).select();
+  
+  if (error) {
+    console.log("🚀 ~ login ~ error:", error)
+    redirect('/admin/create/project/?success=false')
+  }
+  
+  console.log("🚀 ~ updateProject ~ data:", data)
+
+  revalidatePath('/admin/create/project/', 'layout')
+  redirect('/admin/create/project/?success=true')
+}

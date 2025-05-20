@@ -1,22 +1,17 @@
 'use client'
 
-import { useState } from "react"
-// import { updateProfile } from './actions'
+import { updateProject } from './actions'
 import buttonStyles from "@/components/button/button.module.css"
 import { useRef } from 'react';
-
-// import { Editor } from '@/components/forms/Editor'
-
 import RichTextEditor, { type RichTextEditorHandle } from '@/components/forms/Editor'
 
 export const ProjectForm = ({data}: {data?: any}) => {
 
   const ref = useRef(null);
 
-  const handleSubmit = (e) => {
-    console.log("🚀 ~ handleSubmit ~ e:", e)
-    // const overview = (ref?.current as any)?.getContent();
-    // console.log("🚀 ~ handleSubmit ~ overview:", overview)
+  const handleSubmit = (formData: FormData) => {
+    formData.append('overview',(ref?.current as any)?.getContent())
+    updateProject(formData);
   }
 
   return (
@@ -39,7 +34,6 @@ export const ProjectForm = ({data}: {data?: any}) => {
       
       <div className="flex flex-col">
         <label>Overview</label>
-        {/* <textarea name="overview" className="bg-purple/20 p-2" required /> */}
         <RichTextEditor ref={ref} />
       </div>
 
@@ -57,8 +51,7 @@ export const ProjectForm = ({data}: {data?: any}) => {
         </div>
       </fieldset>
 
-
-      <button type="submit" className={`${buttonStyles.button} col-start-2 justify-self-end`} formAction={handleSubmit}>Create</button>
+      <button type="submit" className={`${buttonStyles.button} col-start-2 justify-self-end`} formAction={(formData) => handleSubmit(formData)}>Create</button>
 
     </form>
   )
