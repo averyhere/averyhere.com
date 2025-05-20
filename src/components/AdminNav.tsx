@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogoutButton } from '@/components/auth'
-import { PiPlusDuotone, PiUserCircleGearDuotone } from "react-icons/pi"
+import { PiUserCircleGearDuotone } from "react-icons/pi"
 
 export const AdminNav = () => {
   const pathname = usePathname();
