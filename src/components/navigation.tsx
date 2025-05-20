@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LogoutButton } from '@/components/auth'
 
-export const Navigation = ({ variant, showAdminLinks }: { variant?: string, showAdminLinks?: boolean }) => {
+export const Navigation = ({ variant }: { variant?: string }) => {
   const pathname = usePathname();
   const classes = variant === 'horizontal' ? 'grid grid-cols-1 md:grid-cols-4 max-w-max m-auto gap-4' : 'flex flex-row flex-wrap gap-4 m-auto justify-center'
   return (
@@ -23,19 +22,6 @@ export const Navigation = ({ variant, showAdminLinks }: { variant?: string, show
           <Link href="/contact/" className={`nav-item hover:underline ${pathname === '/contact/' ? 'active' : 'inactive'}`}>contact</Link>
         </li>
       </ul>
-      {showAdminLinks && (
-        <div className="mt-4">
-          <h6 className="text-sm font-bold">Admin</h6>
-          <ul className="flex flex-wrap gap-4 items-center justify-center">
-            <li>
-              <Link href="/admin/" className={`nav-item text-sm hover:underline ${pathname === '/admin/' ? 'active' : 'inactive'}`}>dashboard</Link>
-            </li>
-            <li>
-              <LogoutButton variant="link" />
-            </li>
-          </ul>
-        </div>
-      )}
     </nav>
   )
 }
