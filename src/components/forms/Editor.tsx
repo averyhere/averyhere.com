@@ -7,6 +7,7 @@ import 'quill/dist/quill.snow.css'; // Import Quill styles
 // Define the ref type for the RichTextEditor component
 export type RichTextEditorHandle = {
   getContent: () => string;
+  setContent: (arg0: string) => void;
 };
 
 const RichTextEditor = forwardRef<RichTextEditorHandle>((_, ref) => {
@@ -19,7 +20,7 @@ const RichTextEditor = forwardRef<RichTextEditorHandle>((_, ref) => {
         theme: 'snow',
         modules: {
           toolbar: [
-            [{ header: [2, 3, 4, 5, 6, false] }],
+            [{ 'header': 2 }, { 'header': 3 }, { 'header': 4 }, { 'header': 5 }, { 'header': 6 }],
             ['bold', 'italic', 'underline', 'strike'],
             [{ list: 'ordered' }, { list: 'bullet' }],
             ['link'],
@@ -43,10 +44,20 @@ const RichTextEditor = forwardRef<RichTextEditorHandle>((_, ref) => {
       }
       return '';
     },
+    setContent: (value) => {
+      if (quillRef.current) {
+        if (typeof value === 'string') {
+          const deltaVal = quillRef.current.clipboard.convert({html: value});
+          quillRef.current.setContents(deltaVal);
+        } else {
+          quillRef.current.setContents(value);
+        }
+      }
+    }
   }));
 
   return (
-    <div ref={editorRef} style={{ height: '300px'}}/>
+    <div ref={editorRef} style={{ minHeight: '300px'}} className='bg-purple/20' />
   );
 });
 
