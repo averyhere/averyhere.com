@@ -4,17 +4,18 @@ import { useState } from "react"
 import { updateProfile } from './actions'
 import buttonStyles from "@/components/button/button.module.css"
 
+// eslint-disable-next-line
 export const ProfileForm = ({data}: {data: any}) => {
   const [isPasswordChange, setIsPasswordChange] = useState<boolean>(false)
-console.log("🚀 ~ ProfileForm ~ data:", data)
 
-const checkIsasswordChange = (e: any) => {
-  if (e.target.value) {
-    setIsPasswordChange(true)
-  } else {
-    setIsPasswordChange(false)
+  // eslint-disable-next-line
+  const checkIsasswordChange = (e: any) => {
+    if (e.target.value) {
+      setIsPasswordChange(true)
+    } else {
+      setIsPasswordChange(false)
+    }
   }
-}
 
   return (
     <form className="w-full grid gap-4 md:grid-cols-2">

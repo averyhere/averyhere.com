@@ -61,4 +61,5 @@ const RichTextEditor = forwardRef<RichTextEditorHandle>((_, ref) => {
   );
 });
 
+RichTextEditor.displayName = 'RichTextEditor';
 export default RichTextEditor;

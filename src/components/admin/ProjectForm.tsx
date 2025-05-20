@@ -4,9 +4,10 @@ import { upsertProject, deleteProject } from './actions'
 import { useSearchParams } from 'next/navigation'
 import buttonStyles from "@/components/button/button.module.css"
 import { useRef, useEffect, useState } from 'react';
-import RichTextEditor, { type RichTextEditorHandle } from '@/components/RichTextEditor'
+import RichTextEditor from '@/components/RichTextEditor'
 import { PiCheckFatDuotone, PiWarningDiamondDuotone } from "react-icons/pi";
 
+// eslint-disable-next-line
 export const ProjectForm = ({data}: {data?: any}) => {
   const [hasButton, setHasButton] = useState<boolean>(false)
   const searchParams = useSearchParams();
@@ -19,12 +20,14 @@ export const ProjectForm = ({data}: {data?: any}) => {
   }
 
   const handleSubmit = (formData: FormData) => {
+    // eslint-disable-next-line
     formData.append('overview',(ref?.current as any)?.getContent())
     upsertProject(formData);
   }
 
   useEffect(() => {
     if (data && data?.overview) {
+      // eslint-disable-next-line
       (ref?.current as any)?.setContent(data.overview);
 
       if (data?.link_text) setHasButton(true);

@@ -15,7 +15,7 @@ export async function updateProfile(formData: FormData) {
     password_confirm: formData.get('password_confirm') as string,
   }
 
-  let data = {
+  const data = {
     email: formData.get('email') as string,
     display_name: formData.get('display_name') as string,
   } as {
@@ -56,7 +56,7 @@ export async function upsertProject(formData: FormData) {
     link_url: formData.get('link_url') as string,
   }
 
-  const { data, error } = await supabase.from('projects').upsert(projectData).select();
+  const { error } = await supabase.from('projects').upsert(projectData).select();
   
   if (error) {
     if (projectData.id) {
