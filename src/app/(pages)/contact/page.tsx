@@ -6,6 +6,8 @@ import {
 } from "react-icons/pi"
 import type { Metadata } from 'next'
 import { Button } from "@/components/button"
+
+export const dynamic = 'force-static';
  
 export const metadata: Metadata = {
   title: 'Contact Avery',
