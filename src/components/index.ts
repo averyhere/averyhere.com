@@ -1,6 +1,6 @@
 import { AdminNav } from './AdminNav'
 import { Button } from './button'
-import { Navigation } from './Navigation'
+import { MainNav } from './MainNav'
 import RichTextEditor from './RichTextEditor'
 import { SiteHeader } from './SiteHeader'
 import { Slider } from './Slider'
@@ -14,7 +14,7 @@ import {
 export {
   AdminNav,
   Button,
-  Navigation,
+  MainNav,
   RichTextEditor,
   SiteHeader,
   Slider,

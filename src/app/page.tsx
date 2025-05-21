@@ -1,4 +1,4 @@
-import { AveryOndoLogo, Navigation } from "@/components"
+import { AveryOndoLogo, MainNav } from "@/components"
 import Link from "next/link"
 import type { Metadata } from 'next'
  
@@ -15,7 +15,7 @@ export default function Home() {
         <h1 className="sr-only">Avery Ondo</h1>
       </Link>
       <p className="text-bright-purple dark:text-pink">adventurer, web developer, marketer</p>
-      <Navigation variant="horizontal" />
+      <MainNav variant="horizontal" />
     </main>
   );
 }

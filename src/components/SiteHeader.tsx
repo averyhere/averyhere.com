@@ -1,4 +1,4 @@
-import { AveryOndoLogo, Navigation } from "@/components"
+import { AveryOndoLogo, MainNav } from "@/components"
 import Link from "next/link"
 
 export const SiteHeader = async () => {
@@ -10,7 +10,7 @@ export const SiteHeader = async () => {
         <span className="sr-only">Homepage</span>
       </Link>
       <p className="text-bright-purple dark:text-pink text-xs mb-8">adventurer, web developer, marketer</p>
-      <Navigation />
+      <MainNav />
     </header>
   )
 }

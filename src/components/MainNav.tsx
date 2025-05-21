@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export const Navigation = ({ variant }: { variant?: string }) => {
+export const MainNav = ({ variant }: { variant?: string }) => {
   const pathname = usePathname();
   const classes = variant === 'horizontal' ? 'grid grid-cols-1 md:grid-cols-4 max-w-max m-auto gap-4' : 'flex flex-row flex-wrap gap-4 m-auto justify-center'
   return (

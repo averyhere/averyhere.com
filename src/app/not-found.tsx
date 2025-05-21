@@ -1,4 +1,4 @@
-import { AveryOndoLogo, Navigation } from "@/components"
+import { AveryOndoLogo, MainNav } from "@/components"
 import Link from "next/link"
 
 export default function Page() {
@@ -8,7 +8,7 @@ export default function Page() {
         <Link href="/" className="w-full h-auto max-w-3xs mt-10 md:mt-0 mb-8">
           <AveryOndoLogo className="w-full h-full" />
         </Link>
-        <Navigation />
+        <MainNav />
       </div>
       <div className="w-full h-full flex flex-col justify-center mt-8 md:mt-0 overflow-y-auto">
         <h2 className="mb-4 text-3xl font-bold">404</h2>
