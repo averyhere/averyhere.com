@@ -7,18 +7,27 @@ import { HiOutlineExternalLink } from "react-icons/hi"
 import { PiArrowFatLineDownDuotone } from "react-icons/pi";
 import { Button } from '@/components'
 
-export const Accordion = ({data}:{data:any}) => {
+export const Accordion = ({data}:{data:AccordionItemType[]}) => {
   
   return (
     <div className="divide-y divide-purple divide-dashed">
-      {data?.map((item:any) => (
+      {data?.map((item) => (
         <AccordionItem data={item} key={item.id} />
       ))}
     </div>
   )
 }
 
-const AccordionItem = ({data}: {data:any}) => {
+export type AccordionItemType = {
+  id: string,
+  title: string,
+  subtitle: string,
+  overview: string,
+  link_url: string,
+  link_text: string,
+}
+
+const AccordionItem = ({data}: {data:AccordionItemType}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null)
