@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <article>
       <h1 className="mb-4 text-3xl font-bold">👋 Hi, I'm Avery</h1>
-      <div className='prose dark:prose-invert'>
+      <div className='prose prose-sm dark:prose-invert'>
         <p>
           Web developer and marketer by profession, adventurer by passion.
         </p>

@@ -1,6 +1,7 @@
 import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'
-import Link from "next/link";
+import { Button } from '@/components'
+import { PiArrowSquareOutDuotone } from "react-icons/pi";
 
 export const revalidate = 3600;
  
@@ -14,12 +15,14 @@ export default async function Page() {
   const { data: work_experience } = await supabase.from("work_experience").select();
 
   return (
-    <section className="flex flex-col gap-8 md:mt-20">
-      <header>
-        <h1 className="text-3xl font-bold">
+    <section className="flex flex-col gap-8">
+      <header className='md:flex md:justify-between items-end'>
+        <h1 className="text-3xl font-bold mb-1">
           Work Experience
         </h1>
-        <p><small><Link href="/resume/" rel="nofollow" className='text-bright-purple dark:text-pink underline-offset-4 decoration-blue hover:underline'>View printable resume</Link></small></p>
+        <div>
+          <Button href="/resume/" size='xs' icon={PiArrowSquareOutDuotone} iconPosition='end' external>View printable resume</Button>
+        </div>
       </header>
 
       <div className="flex items-center justify-center pl-3">
