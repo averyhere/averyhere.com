@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
-import { AdminNav } from '@/components'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { PiPencilSimpleDuotone, PiPlusDuotone } from "react-icons/pi";
@@ -28,7 +27,6 @@ export default async function PrivatePage({
 
     return (
       <>
-        <AdminNav />
         <ProjectList projects={projects} />
       </>
     )
@@ -40,7 +38,6 @@ export default async function PrivatePage({
 
     return (
       <>
-        <AdminNav />
         <ExperienceList data={experience} />
       </>
     )
@@ -48,7 +45,7 @@ export default async function PrivatePage({
   
   return (
     <>
-      <AdminNav />
+      Page not found
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/components"
+import { SiteHeader, Footer } from "@/components"
 
 export default function PagesLayout({
   children,
@@ -6,11 +6,14 @@ export default function PagesLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <SiteHeader />
-      <main id="main-content" className="w-full h-full flex flex-col justify-center mt-8 ">
-        {children}
-      </main>
-    </>
+    <div className="min-h-dvh flex flex-col justify-between">
+      <div className="grid gap-4 md:grid-cols-12 max-w-4xl mx-auto">
+        <SiteHeader className="md:col-span-4" />
+        <main id="main-content" className="md:mt-20 md:col-start-5 md:col-span-7">
+          {children}
+        </main>
+      </div>
+      <Footer />
+    </div>
   );
 }

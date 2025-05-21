@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
-import { AdminNav } from '@/components'
 import { redirect } from 'next/navigation'
 import { ProfileForm } from '@/components/admin'
 
@@ -18,9 +17,7 @@ export default async function PrivatePage() {
   }
   
   return (
-    <>
-      <AdminNav />
-      
+    <>      
       <h1 className="text-3xl font-bold">Edit Profile</h1>
 
       <ProfileForm data={data.user} />

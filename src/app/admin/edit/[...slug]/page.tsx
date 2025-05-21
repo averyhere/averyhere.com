@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
-import { AdminNav } from '@/components'
 import { redirect } from 'next/navigation'
 import { ProjectForm, ExperienceForm } from '@/components/admin'
 
@@ -34,16 +33,13 @@ export default async function PrivatePage({
   if (error || !data) {
     return (
       <>
-        <AdminNav />
         <h1 className="text-3xl font-bold">Error locating {type} {id}</h1>
       </>
     )
   }
   
   return (
-    <>
-      <AdminNav />
-      
+    <>      
       <h1 className="text-3xl font-bold mb-4">Edit {type}</h1>
 
       {type === 'project' && (
