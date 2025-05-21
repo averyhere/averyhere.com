@@ -1,4 +1,4 @@
-import { SiteHeader, Footer, AdminNav } from "@/components"
+import { SiteHeader, Footer } from "@/components"
 
 export default function PagesLayout({
   children,
