@@ -80,7 +80,7 @@ const AccordionItem = ({data}: {data:AccordionItemType}) => {
         <div ref={ref} className={accordionStyles['accordion-innerPanel']}>
           <div className="prose prose-sm dark:prose-invert" dangerouslySetInnerHTML={{__html: data.overview}} />
           {data.link_url && data.link_text && (
-            <div className="mt-6 flex justify-end">
+            <div className="mt-2 flex justify-end">
               <Button
                 href={data.link_url}
                 size="sm"

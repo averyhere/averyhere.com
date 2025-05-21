@@ -15,7 +15,7 @@ export default async function Page() {
   const { data: work_experience } = await supabase.from("work_experience").select();
 
   return (
-    <section className="flex flex-col gap-8">
+    <section className="flex flex-col gap-8 md:pt-20">
       <header className='md:flex md:justify-between items-end'>
         <h1 className="text-3xl font-bold mb-1">
           Work Experience
