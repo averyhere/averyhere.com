@@ -3,6 +3,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { PiPencilSimpleDuotone, PiPlusDuotone } from "react-icons/pi";
+import { AdminNav } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Avery Ondo',
@@ -26,9 +27,11 @@ export default async function PrivatePage({
     const { data: projects } = await supabase.from("projects").select();
 
     return (
-      <>
+      <main id="main-content">
+        <AdminNav />
+
         <ProjectList projects={projects} />
-      </>
+      </main>
     )
 
   }
@@ -37,9 +40,11 @@ export default async function PrivatePage({
     const { data: experience } = await supabase.from("work_experience").select();
 
     return (
-      <>
+      <main id="main-content">
+        <AdminNav />
+
         <ExperienceList data={experience} />
-      </>
+      </main>
     )
   }
   
@@ -54,7 +59,6 @@ export default async function PrivatePage({
 const ProjectList = ({projects}: {projects:any}) => {
 
   return (
-
     <section className="flex flex-col">
       <h2 className="text-3xl font-bold">All Projects</h2>
 
