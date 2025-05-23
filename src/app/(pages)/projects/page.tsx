@@ -1,7 +1,6 @@
 import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'
-import { Accordion } from '@/components'
-import type { AccordionItemType } from '@/components/Accordion'
+import { Accordion, type AccordionItemType } from '@/components/ui'
 
 export const revalidate = 3600;
 

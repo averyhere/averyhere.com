@@ -1,11 +1,11 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import buttonStyles from "./button/button.module.css"
-import accordionStyles from "./accordion.module.css"
+import buttonStyles from "@/components/ui/Button/button.module.css"
+import accordionStyles from "@/components/ui/Accordion/accordion.module.css"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { PiArrowFatLineDownDuotone } from "react-icons/pi";
-import { Button } from '@/components'
+import { Button } from '@/components/ui'
 
 export const Accordion = ({data}:{data:AccordionItemType[]}) => {
   

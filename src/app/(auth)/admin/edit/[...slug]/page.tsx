@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { ProjectForm, ExperienceForm } from '@/components/admin'
-import { AdminNav } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Avery Ondo',
@@ -21,7 +20,7 @@ export default async function PrivatePage({
   const { data: authData, error: authError } = await supabase.auth.getUser()
   
   if (authError || !authData?.user) {
-    redirect('/admin/')
+    redirect('/login/')
   }
 
   // Get current data
@@ -34,8 +33,6 @@ export default async function PrivatePage({
   if (error || !data) {
     return (
       <main id="main-content">
-        <AdminNav />
-  
         <h1 className="text-3xl font-bold">Error locating {type} {id}</h1>
       </main>
     )
@@ -43,8 +40,6 @@ export default async function PrivatePage({
   
   return (
     <main id="main-content">
-      <AdminNav />
-
       <h1 className="text-3xl font-bold mb-4">Edit {type}</h1>
 
       {type === 'project' && (

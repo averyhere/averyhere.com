@@ -3,7 +3,6 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { PiPencilSimpleDuotone, PiPlusDuotone } from "react-icons/pi";
-import { AdminNav } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Avery Ondo',
@@ -20,7 +19,7 @@ export default async function PrivatePage({
   const { data: authData, error: authError } = await supabase.auth.getUser()
   
   if (authError || !authData?.user) {
-    redirect('/admin/')
+    redirect('/login/')
   }
   
   if (slug === 'projects') {
@@ -28,8 +27,6 @@ export default async function PrivatePage({
 
     return (
       <main id="main-content">
-        <AdminNav />
-
         <ProjectList projects={projects} />
       </main>
     )
@@ -41,8 +38,6 @@ export default async function PrivatePage({
 
     return (
       <main id="main-content">
-        <AdminNav />
-
         <ExperienceList data={experience} />
       </main>
     )

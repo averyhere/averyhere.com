@@ -1,4 +1,5 @@
-import { AveryOndoLogo, MainNav } from "@/components"
+import { AveryOndoLogo } from "@/components/Logos"
+import { MainNav } from "@/components/MainNav"
 import Link from "next/link"
 
 export const SiteHeader = async ({className, children}:{className?:string, children?:React.ReactElement}) => {

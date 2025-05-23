@@ -1,4 +1,5 @@
-import { SiteHeader, Footer } from "@/components"
+import { SiteHeader } from "@/components/SiteHeader"
+import { Footer } from "@/components/Footer"
 
 export default function PagesLayout({
   children,

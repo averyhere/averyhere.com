@@ -1,27 +1,41 @@
 'use client'
 
-import { upsertExperience, deleteExperience } from './actions'
+import { upsertExperience, deleteExperience } from '@/lib/actions/admin-actions/experience'
 import { useSearchParams } from 'next/navigation'
-import buttonStyles from "@/components/button/button.module.css"
+import buttonStyles from "@/components/ui/Button/button.module.css"
 import { useRef, useEffect, useState } from 'react';
-import RichTextEditor from '@/components/RichTextEditor'
+import { RichTextEditor } from '@/components/ui'
 import { PiCheckFatDuotone, PiWarningDiamondDuotone } from "react-icons/pi";
 
 // eslint-disable-next-line
 export const ExperienceForm = ({data}: {data?: any}) => {
   const searchParams = useSearchParams();
   const ref = useRef(null);
-
+  const [message, setMessage] = useState<null|string>(null)
   const showToast = searchParams.get('success') && searchParams.get('action');
   const toastData = {
     success: searchParams.get('success') === 'true' ? true : false,
     action: searchParams.get('action') as string,
   }
 
-  const handleSubmit = (formData: FormData) => {
+  const handleUpdate = async (formData: FormData) => {
     // eslint-disable-next-line
     formData.append('overview',(ref?.current as any)?.getContent())
-    upsertExperience(formData);
+    const { error, success } = await upsertExperience(formData);
+
+    if (error) {
+      setMessage(error);
+    } else if (success) {
+      setMessage(success);
+    }
+  }
+
+  const handleDelete = async (formData: FormData) => {
+    const { error } = await deleteExperience(formData);
+
+    if (error) {
+      setMessage(error);
+    }
   }
 
   useEffect(() => {
@@ -75,15 +89,20 @@ export const ExperienceForm = ({data}: {data?: any}) => {
       </div>
 
       <div className='flex items-center justify-end gap-4'>
-        <button type="submit" className='text-bright-purple mb-2 opacity-50 hover:opacity-100 cursor-pointer' formAction={deleteExperience}>
+        <button type="submit" className='text-bright-purple mb-2 opacity-50 hover:opacity-100 cursor-pointer' formAction={handleDelete}>
           Delete
         </button>
-        <button type="submit" className={buttonStyles.button} formAction={(formData) => handleSubmit(formData)}>
-          {data !== null ? 'Update' : 'Create'}
+        <button type="submit" className={buttonStyles.button} formAction={handleUpdate}>
+          {data ? 'Update' : 'Create'}
         </button>
       </div>
 
     </form>
+    {message && (
+      <p className="text-sm text-center rounded-md">
+        {message}
+      </p>
+    )}
     {showToast && (<Toast {...toastData} />)}    
     </>
   )

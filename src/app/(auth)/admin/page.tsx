@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/utils/supabase/server'
-import { LoginForm } from '@/components/auth'
-import { Button } from '@/components'
-import { PiPlusDuotone, PiPuzzlePieceDuotone, PiBuildingOfficeDuotone, PiListDuotone } from "react-icons/pi";
+import { redirect } from "next/navigation";
+import { Button } from '@/components/ui'
+import { PiPlusDuotone, PiPuzzlePieceDuotone, PiUserDuotone, PiGearSixDuotone, PiBuildingOfficeDuotone, PiListDuotone } from "react-icons/pi";
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -13,9 +13,8 @@ export const metadata: Metadata = {
 export default async function PrivatePage() {
   const supabase = await createClient()
   const { data, error } = await supabase.auth.getUser()
-
   if (error || !data?.user) {
-    return <LoginForm />
+    redirect("/login/");
   }
 
   const display_name = data.user.user_metadata.display_name;
@@ -45,6 +44,15 @@ export default async function PrivatePage() {
           <div className='flex flex-wrap mt-2'>
             <Button href="/admin/list/projects/" size="sm" icon={PiListDuotone}>View All</Button>
             <Button href="/admin/create/project/" size="sm" icon={PiPlusDuotone}>Add New</Button>
+          </div>
+        </div>
+        <div className='flex justify-between items-center'>
+          <Link href="/admin/list/projects/" className='flex gap-2 items-center'>
+            <PiUserDuotone className='size-14' />
+            <h2 className='text-xl'>My Profile</h2>
+          </Link>
+          <div className='flex flex-wrap mt-2'>
+            <Button href="/admin/profile/" size="sm" icon={PiGearSixDuotone}>Edit</Button>
           </div>
         </div>
       </div>

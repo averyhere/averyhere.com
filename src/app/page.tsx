@@ -1,4 +1,6 @@
-import { AveryOndoLogo, MainNav, Footer } from "@/components"
+import { AveryOndoLogo } from "@/components/Logos"
+import { MainNav } from "@/components/MainNav"
+import { Footer } from "@/components/Footer"
 import Link from "next/link"
 import type { Metadata } from 'next'
  

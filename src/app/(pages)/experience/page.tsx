@@ -1,6 +1,6 @@
 import { createClient } from '@utils/supabase/server';
 import type { Metadata } from 'next'
-import { Button } from '@/components'
+import { Button } from '@/components/ui'
 import { PiArrowSquareOutDuotone } from "react-icons/pi";
 
 export const revalidate = 3600;
