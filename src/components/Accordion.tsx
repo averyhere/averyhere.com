@@ -70,7 +70,7 @@ const AccordionItem = ({data}: {data:AccordionItemType}) => {
         role="region"
         aria-labelledby={`accordionTrigger-${data.id}`}
         aria-hidden={!isOpen}
-        className={accordionStyles['accordion-panel']}
+        className={`${accordionStyles['accordion-panel']} px-2 pb-2`}
         style={{
           height: isOpen ? ref.current?.offsetHeight : 0,
           visibility: isVisible ? 'visible' : 'hidden',
