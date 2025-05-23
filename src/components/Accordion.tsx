@@ -49,7 +49,7 @@ const AccordionItem = ({data}: {data:AccordionItemType}) => {
   return (
     <article className=" py-2" key={data.id}>
       <button 
-        className={`flex w-full items-start justify-between cursor-pointer ${buttonStyles.nestedButtonGroup}`} 
+        className={`sticky top-0 bg-background z-20 p-2 flex w-full items-start justify-between cursor-pointer ${buttonStyles.nestedButtonGroup}`} 
         onClick={()=>{setIsOpen(!isOpen)}}
         aria-expanded={isOpen}
         aria-controls={`accordionPanel-${data.id}`}

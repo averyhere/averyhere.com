@@ -67,6 +67,14 @@ body {
   color: var(--color-foreground);
 }
 
+.bg-background {
+  background: var(--color-background);
+}
+
+.text-foreground {
+  background: var(--color-foreground);
+}
+
 /* Slider (not in use) */
 /* .slider {
   display: grid;
