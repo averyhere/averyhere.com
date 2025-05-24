@@ -13,7 +13,6 @@ export const ProfileForm = ({data}: {data: any}) => {
   const [isPasswordChange, setIsPasswordChange] = useState<boolean>(false)
   const [errorMessage, setErrorMessage] = useState<null|string>(null);
   const [successMessage, setSuccessMessage] = useState<null|string>(null);
-  const [is2FAEnabled, setIs2FAEnabled] = useState(false);
   const [qrCode, setQrCode] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
@@ -39,6 +38,9 @@ export const ProfileForm = ({data}: {data: any}) => {
       setIsPasswordChange(false)
     }
   }
+
+// eslint-disable-next-line
+  const isMFAEnabled = data.factors?.filter((factor:any)=>factor.status === 'verified');
 
   return (
     <>
@@ -81,7 +83,7 @@ export const ProfileForm = ({data}: {data: any}) => {
           <legend className="text-xl">Two factor authentication</legend>
 
           <div className="flex flex-col justify-center">
-            {!is2FAEnabled && (
+            {!isMFAEnabled && (
               <>
                 <button 
                   type="button" 
@@ -142,7 +144,7 @@ export const ProfileForm = ({data}: {data: any}) => {
               </>
             )}
 
-            {is2FAEnabled && (
+            {isMFAEnabled && (
               <button 
                 type="button" 
                 className={`${buttonStyles.button}`}
