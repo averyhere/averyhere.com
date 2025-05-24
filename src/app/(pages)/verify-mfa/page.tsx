@@ -1,11 +1,8 @@
 import { verifyMFA } from "@/lib/actions/mfa/verifyMfa";
 import buttonStyles from "@/components/ui/Button/button.module.css"
 
-export default function MfaVerification({
-  searchParams,
-}: {
-  searchParams: { message: string };
-}) {
+export default async function MfaVerification() {
+
   return (
     <>
       <h1 className="text-center text-3xl font-bold">
@@ -37,12 +34,6 @@ export default function MfaVerification({
             Verify
           </button>
         </div>
-
-        {searchParams?.message && (
-          <p className="mt-2 text-center text-sm text-gray-300 bg-gray-800 p-2 rounded-md">
-            {searchParams.message}
-          </p>
-        )}
       </form>
     </>
   );

@@ -12,7 +12,9 @@ export const verifyMFA = async (formData: FormData) => {
     // check the list factors of user
     const factors = await supabase.auth.mfa.listFactors()
     if (factors.error) {
-      throw factors.error
+    //   throw factors.error
+
+        redirect(`/error/?message=${encodeURIComponent(factors.error.message)}`)
       // return { error: factors.error?.message }
     }
 
@@ -22,7 +24,9 @@ export const verifyMFA = async (formData: FormData) => {
     // console.log('totpFactor', totp)
 
     if (!totp) {
-        throw new Error('No TOTP factors found!')
+        // throw new Error('No TOTP factors found!')
+
+        redirect('/error/?message=No+TOTP+factors+found!')
         // return { error: 'No TOTP factors found!'}
     }
 
@@ -38,7 +42,8 @@ export const verifyMFA = async (formData: FormData) => {
 
     if (challenge.error) {
         // console.log(challenge.error.message)
-        throw challenge.error
+        redirect(`/error/?message=${encodeURIComponent(challenge.error.message)}`)
+        // throw challenge.error
         // return { error: challenge.error.message }
     }
 
@@ -54,19 +59,21 @@ export const verifyMFA = async (formData: FormData) => {
 
     if (verify.error) {
         // console.log(verify.error.message)
-        throw verify.error
+        redirect(`/error/?message=${encodeURIComponent(verify.error.message)}`)
+        // throw verify.error
         // return { error: verify.error.message }
     }
 
     // Set a success message in the session
-    const { data, error } = await supabase.auth.setSession({
+    const { error } = await supabase.auth.setSession({
         access_token: verify?.data?.access_token || '',
         refresh_token: verify.data?.refresh_token || ''
     })
 
     if (error) {
         // console.log(error.message)
-        throw error
+        redirect(`/error/?message=${encodeURIComponent(error.message)}`)
+        // throw error
         // return { error: error.message }
     }
 

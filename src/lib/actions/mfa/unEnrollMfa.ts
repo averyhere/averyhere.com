@@ -1,6 +1,7 @@
 'use server'
 
 import { createClient } from "@/utils/supabase/server"
+import { redirect } from 'next/navigation'
 
 export const unEnrollMFA = async () => {
     const supabase = await createClient()
@@ -8,7 +9,8 @@ export const unEnrollMFA = async () => {
     // find the factorId first before unenrolling
     const factors = await supabase.auth.mfa.listFactors()
     if (factors.error) {
-        throw factors.error
+        // throw factors.error
+        redirect(`/error/?message=${encodeURIComponent(factors.error.message)}`)
     }
 
     // console.log('factors', factors.data.all)
@@ -19,12 +21,13 @@ export const unEnrollMFA = async () => {
         // console.log("factorId", factorId)
 
         // now we'll unenroll the factor
-        const { data, error } = await supabase.auth.mfa.unenroll({
+        const { error } = await supabase.auth.mfa.unenroll({
             factorId
         })
         if (error) {
             // console.log('error in enrolling MFA', error)
-            throw error
+            // throw error
+            redirect(`/error/?message=${encodeURIComponent(error.message)}`)
         }
         // console.log('factors', data)
         // console.log('dataID or factorIdUnenrolled-->', data.id)
@@ -33,5 +36,6 @@ export const unEnrollMFA = async () => {
     }
 
     // console.log('No TOTP factors found!')
+    
 
 }

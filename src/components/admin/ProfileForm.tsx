@@ -7,6 +7,7 @@ import { verifyMFA } from "@/lib/actions/mfa/verifyMfa";
 import { unEnrollMFA } from "@/lib/actions/mfa/unEnrollMfa";
 import buttonStyles from "@/components/ui/Button/button.module.css"
 import { Toast } from '@/components/ui'
+import Image from 'next/image'
 
 // eslint-disable-next-line
 export const ProfileForm = ({data}: {data: any}) => {
@@ -97,7 +98,7 @@ export const ProfileForm = ({data}: {data: any}) => {
                     <div className="flex flex-col md:flex-row">
                       <p>Scan the QR code with your authenticator app and enter the verification code below.</p>
                       <div className="inline-block border p-1 rounded-lg bg-white">
-                        <img
+                        <Image
                           src={qrCode}
                           alt="MFA QR Code"
                           width={200}

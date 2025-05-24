@@ -1,8 +1,9 @@
 'use server'
 
 import { createClient } from "@/utils/supabase/server"
+import { redirect } from "next/navigation"
 
-export const enrollMFA = async (formData?: FormData) => {
+export const enrollMFA = async () => {
     const supabase = await createClient()
     
     // assurance level before enrolling MFA
@@ -18,7 +19,8 @@ export const enrollMFA = async (formData?: FormData) => {
         for (const factor of unverifiedFactors) {
             const { error } = await supabase.auth.mfa.unenroll({factorId: factor.id});
             if (error) {
-                throw error
+                // throw error
+                redirect(`/error/?message=${encodeURIComponent(error.message)}`)
             }
         }
     }
@@ -29,7 +31,8 @@ export const enrollMFA = async (formData?: FormData) => {
 
     if (error) {
         // console.log('error in enrolling MFA', error)
-        throw error
+        // throw error
+        redirect(`/error/?message=${encodeURIComponent(error.message)}`)
         // return { error: error?.message }
     }
     // console.log('factors', data)
