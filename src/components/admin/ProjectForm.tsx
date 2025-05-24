@@ -1,25 +1,16 @@
 'use client'
 
 import { upsertProject, deleteProject } from '@/lib/actions/admin-actions/projects'
-import { useSearchParams } from 'next/navigation'
 import buttonStyles from "@/components/ui/Button/button.module.css"
 import { useRef, useEffect, useState } from 'react';
-import { RichTextEditor } from '@/components/ui'
-import { PiCheckFatDuotone, PiWarningDiamondDuotone } from "react-icons/pi";
+import { Toast, RichTextEditor } from '@/components/ui'
 
 // eslint-disable-next-line
 export const ProjectForm = ({data}: {data?: any}) => {
-  console.log("🚀 ~ ProjectForm ~ data:", data)
   const [hasButton, setHasButton] = useState<boolean>(false)
-  const [message, setMessage] = useState<null|string>(null)
-  const searchParams = useSearchParams();
+  const [errorMessage, setErrorMessage] = useState<null|string>(null);
+  const [successMessage, setSuccessMessage] = useState<null|string>(null);
   const ref = useRef(null);
-
-  const showToast = searchParams.get('success') && searchParams.get('action');
-  const toastData = {
-    success: searchParams.get('success') === 'true' ? true : false,
-    action: searchParams.get('action') as string,
-  }
 
   const handleUpdate = async (formData: FormData) => {
     // eslint-disable-next-line
@@ -27,9 +18,9 @@ export const ProjectForm = ({data}: {data?: any}) => {
     const { error, success } = await upsertProject(formData);
 
     if (error) {
-      setMessage(error);
+      setErrorMessage(`${error}`);
     } else if (success) {
-      setMessage(success);
+      setSuccessMessage(success);
     }
   }
 
@@ -37,7 +28,7 @@ export const ProjectForm = ({data}: {data?: any}) => {
     const { error } = await deleteProject(formData);
 
     if (error) {
-      setMessage(error);
+      setErrorMessage(error);
     }
   }
 
@@ -103,46 +94,14 @@ export const ProjectForm = ({data}: {data?: any}) => {
       </div>
 
     </form>
-    {message && (
-      <p className="text-sm text-center rounded-md">
-        {message}
-      </p>
+    
+    {errorMessage && (
+      <Toast message={errorMessage} variant="error" />
     )}
-    {showToast && (<Toast {...toastData} />)}    
+
+    {successMessage && (
+      <Toast message={successMessage} variant="success" />
+    )}
     </>
-  )
-}
-
-const Toast = ({success, action}: {success: boolean, action: string}) => {
-  const [isVisible, setIsVisible] = useState(true)
-
-  useEffect(() => {
-    setTimeout(()=>{
-      setIsVisible(false);
-    }, 3500)
-
-    return () => {
-
-    }
-  }, []);
-
-  return (
-    <aside className={`fixed transition-all duration-300 ease-in ${isVisible ? 'animate-bounce bottom-4 right-4' : 'right-4 -bottom-full'}`}>
-      <div className={`flex items-center gap-2 p-4  ${success ? 'bg-blue text-bright-purple' : 'bg-pink text-bright-purple'}`}>
-        {success && (
-          <>
-            <PiCheckFatDuotone className='size-10' />
-            <h3>Project {action === 'update' ? 'updated' : action === 'insert' ? 'inserted' : 'deleted'}  successfully</h3>
-          </>
-        )}
-        {!success && (
-          <>
-            <PiWarningDiamondDuotone className='size-10' />
-            <h3>Error while {action === 'update' ? 'updating' : action === 'insert' ? 'inserting' : 'deleting'}  the project</h3>
-          </>
-        )}
-      </div>
-      <div className={`absolute top-1 left-1 w-full h-full -z-10 ${success ? 'bg-pink' : 'bg-blue'}`}></div>
-    </aside>
   )
 }

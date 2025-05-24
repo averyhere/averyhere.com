@@ -12,8 +12,8 @@ export const verifyMFA = async (formData: FormData) => {
     // check the list factors of user
     const factors = await supabase.auth.mfa.listFactors()
     if (factors.error) {
-        // throw factors.error
-        return { error: factors.error?.message }
+      throw factors.error
+      // return { error: factors.error?.message }
     }
 
     console.log('factors', factors.data.all)
@@ -22,8 +22,8 @@ export const verifyMFA = async (formData: FormData) => {
     console.log('totpFactor', totp)
 
     if (!totp) {
-        // throw new Error('No TOTP factors found!')
-        return { error: 'No TOTP factors found!'}
+        throw new Error('No TOTP factors found!')
+        // return { error: 'No TOTP factors found!'}
     }
 
     const factorId = factors.data.all[0].id
@@ -38,8 +38,8 @@ export const verifyMFA = async (formData: FormData) => {
 
     if (challenge.error) {
         console.log(challenge.error.message)
-        // throw challenge.error
-        return { error: challenge.error.message }
+        throw challenge.error
+        // return { error: challenge.error.message }
     }
 
     const challengeId = challenge.data.id
@@ -54,8 +54,8 @@ export const verifyMFA = async (formData: FormData) => {
 
     if (verify.error) {
         console.log(verify.error.message)
-        // throw verify.error
-        return { error: verify.error.message }
+        throw verify.error
+        // return { error: verify.error.message }
     }
 
     // Set a success message in the session
@@ -66,8 +66,8 @@ export const verifyMFA = async (formData: FormData) => {
 
     if (error) {
         console.log(error.message)
-        // throw error
-        return { error: error.message }
+        throw error
+        // return { error: error.message }
     }
 
     // Redirect with success message

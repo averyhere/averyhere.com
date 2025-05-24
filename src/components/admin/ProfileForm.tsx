@@ -2,36 +2,38 @@
 
 import { useState } from "react"
 import { updateProfile } from '@/lib/actions/admin-actions/profile'
-import { enrollMFA } from "@/lib/actions/mfa/enrollMfa";
-import { verifyMFA } from "@/lib/actions/mfa/verifyMfa";
-import { unEnrollMFA } from "@/lib/actions/mfa/unEnrollMfa";
+// import { enrollMFA } from "@/lib/actions/mfa/enrollMfa";
+// import { verifyMFA } from "@/lib/actions/mfa/verifyMfa";
+// import { unEnrollMFA } from "@/lib/actions/mfa/unEnrollMfa";
 import buttonStyles from "@/components/ui/Button/button.module.css"
+import { Toast } from '@/components/ui'
 
 // eslint-disable-next-line
 export const ProfileForm = ({data}: {data: any}) => {
   console.log("🚀 ~ ProfileForm ~ data:", data)
   const [isPasswordChange, setIsPasswordChange] = useState<boolean>(false)
-  const [message, setMessage] = useState<null|string>(null);
-  const [is2FAEnabled, setIs2FAEnabled] = useState(false);
-  const [qrCode, setQrCode] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<null|string>(null);
+  const [successMessage, setSuccessMessage] = useState<null|string>(null);
+  // const [is2FAEnabled, setIs2FAEnabled] = useState(false);
+  // const [qrCode, setQrCode] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
     const { error, success } = await updateProfile(formData);
     if (error) {
-      setMessage(`Oops! ${error}`);
+      setErrorMessage(error);
     } else if (success) {
-      setMessage(success);
+      setSuccessMessage(success);
     }
   }
 
-  const handleEnrollMfa = async () => {
-    const mfa = await enrollMFA();
-    console.log("MFA-->", mfa);
-    setQrCode(mfa.totp.qr_code);
-  };
+  // const handleEnrollMfa = async () => {
+  //   const mfa = await enrollMFA();
+  //   console.log("MFA-->", mfa);
+  //   setQrCode(mfa.totp.qr_code);
+  // };
 
   // eslint-disable-next-line
-  const checkIsasswordChange = (e: any) => {
+  const checkIsPasswordChange = (e: any) => {
     if (e.target.value) {
       setIsPasswordChange(true)
     } else {
@@ -61,7 +63,7 @@ export const ProfileForm = ({data}: {data: any}) => {
 
           <div className="flex flex-col">
             <label>New Password</label>
-            <input name="new_password" type="password" className="bg-purple/20 p-2 border border-purple" required={isPasswordChange} onChange={(e) => checkIsasswordChange(e)}/>
+            <input name="new_password" type="password" className="bg-purple/20 p-2 border border-purple" required={isPasswordChange} onChange={(e) => checkIsPasswordChange(e)}/>
           </div>
 
           <div className={`flex flex-col ${isPasswordChange ? 'opacity-100' : 'opacity-50'}`}>
@@ -75,7 +77,7 @@ export const ProfileForm = ({data}: {data: any}) => {
       </form>
 
 
-      <form className="grid gap-4 mt-4 items-center">
+      {/* <form className="grid gap-4 mt-4 items-center">
         <fieldset className="grid grid-col-1 gap-4 border border-purple p-4 pt-2">
           <legend className="text-xl">Two factor authentication</legend>
 
@@ -140,12 +142,14 @@ export const ProfileForm = ({data}: {data: any}) => {
             )}
           </div>
         </fieldset>
-      </form>
+      </form> */}
 
-      {message && (
-        <p className="text-sm text-center rounded-md">
-          {message}
-        </p>
+      {errorMessage && (
+        <Toast message={errorMessage} variant="error" />
+      )}
+
+      {successMessage && (
+        <Toast message={successMessage} variant="success" />
       )}
     </>
   )

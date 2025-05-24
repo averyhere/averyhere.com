@@ -3,8 +3,9 @@
 import { loginAction } from '@/lib/actions/login'
 import buttonStyles from "@/components/ui/Button/button.module.css"
 import { useState } from "react"
+import { Toast } from "@/components/ui"
 
-export const LoginForm = ({ message }: { message?:string }) => {
+export const LoginForm = () => {
   const [error, setError] = useState<null|string>(null);
 
   const handleSubmit = async (formData: FormData) => {
@@ -28,14 +29,7 @@ export const LoginForm = ({ message }: { message?:string }) => {
         <button type="submit" className={`${buttonStyles.button} !justify-center !w-full`}>Login</button>
       </form>
       {error && (
-        <p className="text-sm text-center rounded-md">
-          {error}
-        </p>
-      )}
-      {message && (
-        <p className="text-sm text-center rounded-md">
-          {message}
-        </p>
+        <Toast variant='error' message={error} />
       )}
     </>
   )
