@@ -6,16 +6,12 @@ export const metadata: Metadata = {
   description: 'Avery Ondo\'s personal website.',
 }
 
-export default async function PrivatePage({
-  searchParams,
-}: {
-  searchParams: { message: string };
-}) {
+export default async function PrivatePage() {
 
   return (
     <>
       <h1 className='text-3xl text-center font-bold mb-2'>Login</h1>
-      <LoginForm message={searchParams.message} />
+      <LoginForm />
     </>
   )
 }
