@@ -11,27 +11,27 @@ export const unEnrollMFA = async () => {
         throw factors.error
     }
 
-    console.log('factors', factors.data.all)
+    // console.log('factors', factors.data.all)
 
 
     if (factors) {
         const factorId = factors.data.all[0].id
-        console.log("factorId", factorId)
+        // console.log("factorId", factorId)
 
         // now we'll unenroll the factor
         const { data, error } = await supabase.auth.mfa.unenroll({
             factorId
         })
         if (error) {
-            console.log('error in enrolling MFA', error)
+            // console.log('error in enrolling MFA', error)
             throw error
         }
-        console.log('factors', data)
-        console.log('dataID or factorIdUnenrolled-->', data.id)
+        // console.log('factors', data)
+        // console.log('dataID or factorIdUnenrolled-->', data.id)
 
 
     }
 
-    console.log('No TOTP factors found!')
+    // console.log('No TOTP factors found!')
 
 }

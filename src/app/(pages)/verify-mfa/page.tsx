@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
 import { verifyMFA } from "@/lib/actions/mfa/verifyMfa";
+import buttonStyles from "@/components/ui/Button/button.module.css"
 
 export default function MfaVerification({
   searchParams,
@@ -13,21 +13,18 @@ export default function MfaVerification({
       </h1>
       <form
         action={verifyMFA}
-        className="mt-8 space-y-6 animate-in flex-1 flex flex-col w-full justify-center gap-2 text-gray-100"
+        className="grid grid-col-1 gap-4 w-full max-w-xs mx-auto"
       >
-        <div>
-          <label
-            className="block text-sm font-medium text-gray-300"
-            htmlFor="verifyCode"
-          >
+        <div className="flex flex-col">
+          <label htmlFor="verifyCode" className="text-center">
             Enter your 6-digit verification code
           </label>
           <input
-            className="mt-1 block w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className="bg-purple/20 p-2 border border-purple tracking-[1ch] text-center"
             type="text"
             name="verifyCode"
             id="verifyCode"
-            placeholder="••••••"
+            placeholder="• • • • • •"
             required
             maxLength={6}
           />
@@ -35,7 +32,7 @@ export default function MfaVerification({
         <div>
           <button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+             className={`${buttonStyles.button} !justify-center !w-full`}
           >
             Verify
           </button>

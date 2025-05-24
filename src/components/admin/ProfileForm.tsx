@@ -2,20 +2,19 @@
 
 import { useState } from "react"
 import { updateProfile } from '@/lib/actions/admin-actions/profile'
-// import { enrollMFA } from "@/lib/actions/mfa/enrollMfa";
-// import { verifyMFA } from "@/lib/actions/mfa/verifyMfa";
-// import { unEnrollMFA } from "@/lib/actions/mfa/unEnrollMfa";
+import { enrollMFA } from "@/lib/actions/mfa/enrollMfa";
+import { verifyMFA } from "@/lib/actions/mfa/verifyMfa";
+import { unEnrollMFA } from "@/lib/actions/mfa/unEnrollMfa";
 import buttonStyles from "@/components/ui/Button/button.module.css"
 import { Toast } from '@/components/ui'
 
 // eslint-disable-next-line
 export const ProfileForm = ({data}: {data: any}) => {
-  console.log("🚀 ~ ProfileForm ~ data:", data)
   const [isPasswordChange, setIsPasswordChange] = useState<boolean>(false)
   const [errorMessage, setErrorMessage] = useState<null|string>(null);
   const [successMessage, setSuccessMessage] = useState<null|string>(null);
-  // const [is2FAEnabled, setIs2FAEnabled] = useState(false);
-  // const [qrCode, setQrCode] = useState<string | null>(null);
+  const [is2FAEnabled, setIs2FAEnabled] = useState(false);
+  const [qrCode, setQrCode] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
     const { error, success } = await updateProfile(formData);
@@ -26,11 +25,11 @@ export const ProfileForm = ({data}: {data: any}) => {
     }
   }
 
-  // const handleEnrollMfa = async () => {
-  //   const mfa = await enrollMFA();
-  //   console.log("MFA-->", mfa);
-  //   setQrCode(mfa.totp.qr_code);
-  // };
+  const handleEnrollMfa = async () => {
+    const mfa = await enrollMFA();
+    // console.log("MFA-->", mfa);
+    setQrCode(mfa.totp.qr_code);
+  };
 
   // eslint-disable-next-line
   const checkIsPasswordChange = (e: any) => {
@@ -77,7 +76,7 @@ export const ProfileForm = ({data}: {data: any}) => {
       </form>
 
 
-      {/* <form className="grid gap-4 mt-4 items-center">
+      <form className="grid gap-4 mt-4 items-center">
         <fieldset className="grid grid-col-1 gap-4 border border-purple p-4 pt-2">
           <legend className="text-xl">Two factor authentication</legend>
 
@@ -106,7 +105,7 @@ export const ProfileForm = ({data}: {data: any}) => {
                     </div>
                     <div className="flex gap-2 col-start-2 col-span-2 items-end">
                       <div className="flex flex-col w-full">
-                        <label htmlFor="verificationCode">Verify code :</label>
+                        <label htmlFor="verificationCode">Verify code:</label>
                         <input 
                           name="verifyCode" 
                           id="verificationCode" 
@@ -117,11 +116,23 @@ export const ProfileForm = ({data}: {data: any}) => {
                         />
                       </div>
 
+                      <div className="flex flex-col w-full">
+                        <label htmlFor="friendlyName">Device name:</label>
+                        <input 
+                          name="friendlyName" 
+                          id="friendlyName" 
+                          type="text" 
+                          className="bg-purple/20 p-2 border border-purple"
+                          placeholder="Enter a unique device name"
+                          required 
+                        />
+                      </div>
+
                       <button 
-                        type="button" 
+                        type="submit" 
                         className={`${buttonStyles.button}`}
                         style={{marginBottom: '0'}}
-                        onClick={() => handleEnrollMfa()}
+                        formAction={verifyMFA}
                       >
                         Verify
                       </button>
@@ -142,7 +153,7 @@ export const ProfileForm = ({data}: {data: any}) => {
             )}
           </div>
         </fieldset>
-      </form> */}
+      </form>
 
       {errorMessage && (
         <Toast message={errorMessage} variant="error" />

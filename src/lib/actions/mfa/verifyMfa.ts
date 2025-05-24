@@ -7,7 +7,7 @@ export const verifyMFA = async (formData: FormData) => {
     const supabase = await createClient()
 
     const verificationCode = formData.get('verifyCode') as string
-    console.log("verificationCode-->", verificationCode)
+    // console.log("verificationCode-->", verificationCode)
 
     // check the list factors of user
     const factors = await supabase.auth.mfa.listFactors()
@@ -16,10 +16,10 @@ export const verifyMFA = async (formData: FormData) => {
       // return { error: factors.error?.message }
     }
 
-    console.log('factors', factors.data.all)
+    // console.log('factors', factors.data.all)
 
     const totp = factors.data.all[0].factor_type
-    console.log('totpFactor', totp)
+    // console.log('totpFactor', totp)
 
     if (!totp) {
         throw new Error('No TOTP factors found!')
@@ -27,23 +27,23 @@ export const verifyMFA = async (formData: FormData) => {
     }
 
     const factorId = factors.data.all[0].id
-    console.log("factorId", factorId)
+    // console.log("factorId", factorId)
 
 
     // now'we challenge and verify
     const challenge = await supabase.auth.mfa.challenge({
         factorId
     })
-    console.log('challenge', challenge)
+    // console.log('challenge', challenge)
 
     if (challenge.error) {
-        console.log(challenge.error.message)
+        // console.log(challenge.error.message)
         throw challenge.error
         // return { error: challenge.error.message }
     }
 
     const challengeId = challenge.data.id
-    console.log('challengeID', challengeId)
+    // console.log('challengeID', challengeId)
 
 
     const verify = await supabase.auth.mfa.verify({
@@ -53,7 +53,7 @@ export const verifyMFA = async (formData: FormData) => {
     })
 
     if (verify.error) {
-        console.log(verify.error.message)
+        // console.log(verify.error.message)
         throw verify.error
         // return { error: verify.error.message }
     }
@@ -65,13 +65,13 @@ export const verifyMFA = async (formData: FormData) => {
     })
 
     if (error) {
-        console.log(error.message)
+        // console.log(error.message)
         throw error
         // return { error: error.message }
     }
 
     // Redirect with success message
-    redirect('/admin?mfaSuccess=true')
+    redirect('/admin/')
 
 
 }
