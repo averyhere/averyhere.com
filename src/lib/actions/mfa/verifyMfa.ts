@@ -71,7 +71,7 @@ export const verifyMFA = async (formData: FormData) => {
     }
 
     // Redirect with success message
-    redirect('/admin/')
+    redirect('/admin/?mfaVerified=true')
 
 
 }
