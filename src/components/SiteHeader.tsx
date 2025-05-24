@@ -1,4 +1,4 @@
-import { AveryOndoLogo } from "@/components/Logos"
+import { AveryOndoLogo } from "@/components/logos"
 import { MainNav } from "@/components/MainNav"
 import Link from "next/link"
 
