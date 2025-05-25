@@ -2,7 +2,7 @@ import { SiteHeader } from "@/components/SiteHeader"
 import { Footer } from "@/components/Footer"
 import { AdminNav } from "@/components/admin"
 
-export default async function PagesLayout({
+export default function PagesLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
