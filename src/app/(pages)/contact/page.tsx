@@ -29,36 +29,40 @@ export default function Page() {
           <Button
             href="https://www.linkedin.com/in/averyondo/" 
             icon={PiLinkedinLogoDuotone}
+            size="lg"
             external
           >
-            LinkedIn
+            <span className="sr-only">LinkedIn</span>
           </Button>
         </li>
         <li>
           <Button
             href="https://github.com/averyhere"
             icon={PiGithubLogoDuotone}
+            size="lg"
             external
           >
-            GitHub
+            <span className="sr-only">GitHub</span>
           </Button>
         </li>
         <li>
           <Button
             href="https://bsky.app/profile/averyhere.com"
             icon={PiButterflyDuotone}
+            size="lg"
             external
           >
-            Bluesky
+            <span className="sr-only">Bluesky</span>
           </Button>
         </li>
         <li>
           <Button
             href="mailto:hello@averyhere.com"
             icon={PiEnvelopeDuotone}
+            size="lg"
             external
           >
-            Email
+            <span className="sr-only">Email</span>
           </Button>
         </li>
       </ul>
