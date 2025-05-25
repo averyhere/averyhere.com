@@ -3,6 +3,7 @@
   position: relative;
   overflow: hidden;
   transition: all 500ms ease-in-out;
+  width: 100%;
 }
 
 /* Inner panel absolute to make panel height available to JS */

@@ -47,9 +47,9 @@ const AccordionItem = ({data}: {data:AccordionItemType}) => {
   }, [isOpen])
 
   return (
-    <article className=" py-2" key={data.id}>
+    <article key={data.id} className='py-2'>
       <button 
-        className={`sticky top-0 bg-background z-20 p-2 flex w-full items-start justify-between cursor-pointer ${buttonStyles.nestedButtonGroup}`} 
+        className={`sticky top-0 bg-background z-20 py-2 flex w-full items-start justify-between cursor-pointer ${buttonStyles.nestedButtonGroup}`} 
         onClick={()=>{setIsOpen(!isOpen)}}
         aria-expanded={isOpen}
         aria-controls={`accordionPanel-${data.id}`}
@@ -70,7 +70,7 @@ const AccordionItem = ({data}: {data:AccordionItemType}) => {
         role="region"
         aria-labelledby={`accordionTrigger-${data.id}`}
         aria-hidden={!isOpen}
-        className={`${accordionStyles['accordion-panel']} px-2 pb-2`}
+        className={`${accordionStyles['accordion-panel']}`}
         style={{
           height: isOpen ? ref.current?.offsetHeight : 0,
           visibility: isVisible ? 'visible' : 'hidden',
