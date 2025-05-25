@@ -1,0 +1,23 @@
+.accordion-panel {
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 500ms ease-in-out;
+  width: 100%;
+}
+
+/* Inner panel absolute to make panel height available to JS */
+.accordion-innerPanel {
+  position: absolute;
+  width: 100%;
+}
+
+/* Closed panel */
+.accordion-panel[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+/* Open Panel */
+.accordion-panel:not([aria-hidden="true"]) {
+  opacity: 1;
+}

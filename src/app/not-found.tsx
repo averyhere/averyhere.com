@@ -1,22 +1,19 @@
-import { AveryOndoLogo } from "@/components/logos"
-import Link from "next/link"
-import { Navigation } from "@/components/navigation"
+import { SiteHeader } from "@/components/SiteHeader"
+import { Footer } from "@/components/Footer"
 
 export default function Page() {
   return (
-    <>
-      <div className="h-auto w-full md:h-dvh md:self-start md:sticky md:top-0 md:w-sm flex flex-col items-center justify-center">
-        <Link href="/" className="w-full h-auto max-w-3xs mt-10 md:mt-0 mb-8">
-          <AveryOndoLogo className="w-full h-full" />
-        </Link>
-        <Navigation />
+      <div className="min-h-dvh flex flex-col justify-between">
+        <div className="grid gap-4 md:grid-cols-12 max-w-4xl mx-auto">
+          <SiteHeader className="md:col-span-4" />
+          <main id="main-content" className="md:mt-20 md:col-start-5 md:col-span-7">
+            <h1 className="mb-4 text-3xl font-bold">404</h1>
+            <p>
+              Sorry! Couldn't find that page.
+            </p>
+          </main>
+        </div>
+        <Footer />
       </div>
-      <div className="w-full h-full flex flex-col justify-center mt-8 md:mt-0 overflow-y-auto">
-        <h2 className="mb-4 text-3xl font-bold">404</h2>
-        <p>
-          Sorry! Couldn't find that page.
-        </p>
-      </div>
-    </>
   );
 }

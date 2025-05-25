@@ -17,16 +17,15 @@ export default async function Page() {
   const { data: work_experience } = await supabase.from("work_experience").select();
 
   return (
-    <main>
+    <main className="max-w-[7.5in] m-auto print:max-w-full">
       <section className="w-full grid grid-cols-4 gap-4 py-6">
         <aside className="col-start-1 col-span-1">
-          <AveryOndoLogo className="w-full max-w-10/12 h-auto" />
+          <AveryOndoLogo className="w-full h-auto" />
         </aside>
         <header className="col-start-2 col-span-3">
           <h1 className="font-bold text-lg inline mr-1">Avery Ondo</h1><small><em>she/her</em></small>
           <p className="mb-2 text-sm font-light">Developer, Marketer, Adventurer</p>
           <address className="not-italic text-sm">
-            phone: <Link className="text-bright-purple dark:text-pink print:text-bright-purple" href="tel:+17209985398">720.998.5398</Link><br />
             e-mail: <Link className="text-bright-purple dark:text-pink print:text-bright-purple" href="mailto:hello@averyhere.com">hello&#x40;averyhere.com</Link><br />
             website: <Link className="text-bright-purple dark:text-pink print:text-bright-purple" href="/">averyhere.com</Link>
           </address>
@@ -38,13 +37,13 @@ export default async function Page() {
           <hr className="h-px bg-purple border-0 dark:bg-purple w-1/12" />
         </div>
         <div className="col-start-2 col-span-3">
-          <hr className="h-px bg-purple border-0 dark:bg-purple w-11/12" />
+          <hr className="h-px bg-transparent border-0 border-b border-dashed border-purple w-full" />
         </div>
       </div>
 
       <section className="w-full grid grid-cols-4 gap-4 py-6">
         <h2 className="col-start-1 col-span-1 font-bold">Overview</h2>
-        <article className="col-start-2 col-span-3 prose-sm prose prose-p:leading-tight prose-p:text-pretty dark:prose-invert print:prose print:prose-sm">
+        <article className="col-start-2 col-span-3 prose-sm prose prose-p:leading-tight prose-p:text-pretty dark:prose-invert print:!prose print:prose-sm">
           <p>Web developer and marketer by profession, adventurer by passion. With more than a decade of experience in web development, I have spent my career strategizing, building, scaling, and optimizing both the technical aspects of modern websites as well as the  marketing focused web development, CRO, and analytics teams behind them. Having equal responsibilities as a leader, marketer, and technologist, I work in the intersection of creativity, analytics, and code.</p>
         </article>
       </section>
@@ -54,7 +53,7 @@ export default async function Page() {
           <hr className="h-px bg-purple border-0 dark:bg-purple w-1/12" />
         </div>
         <div className="col-start-2 col-span-3">
-          <hr className="h-px bg-purple border-0 dark:bg-purple w-11/12" />
+          <hr className="h-px bg-transparent border-0 border-b border-dashed border-purple w-full" />
         </div>
       </div>
 
@@ -79,7 +78,7 @@ export default async function Page() {
           <hr className="h-px bg-purple border-0 dark:bg-purple w-1/12" />
         </div>
         <div className="col-start-2 col-span-3">
-          <hr className="h-px bg-purple border-0 dark:bg-purple w-11/12" />
+          <hr className="h-px bg-transparent border-0 border-b border-dashed border-purple w-full" />
         </div>
       </div>
 
@@ -98,7 +97,7 @@ export default async function Page() {
           <hr className="h-px bg-purple border-0 dark:bg-purple w-1/12" />
         </div>
         <div className="col-start-2 col-span-3">
-          <hr className="h-px bg-purple border-0 dark:bg-purple w-11/12" />
+          <hr className="h-px bg-transparent border-0 border-b border-dashed border-purple w-full" />
         </div>
       </div>
 
@@ -153,7 +152,7 @@ export default async function Page() {
           <hr className="h-px bg-purple border-0 dark:bg-purple w-1/12" />
         </div>
         <div className="col-start-2 col-span-3">
-          <hr className="h-px bg-purple border-0 dark:bg-purple w-11/12" />
+          <hr className="h-px bg-transparent border-0 border-b border-dashed border-purple w-full" />
         </div>
       </div>
 
