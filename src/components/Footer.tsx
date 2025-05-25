@@ -6,7 +6,7 @@ export const Footer = async () => {
   const supabase = await createClient()
   const { data, error } = await supabase.auth.getUser()
   return (
-    <footer className="justify-self-end">
+    <footer className="justify-self-end w-full">
       <div className="text-center grow-0 print:hidden my-1 flex flex-col items-center justify-center gap-1 text-xs">
         {(!error && data?.user) && (
           <span>
