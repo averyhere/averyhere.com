@@ -9,14 +9,16 @@ export const NavLink = ({
   className,
   href,
   activeClasses,
+  exactMatchOnly = false,
 }: {
   children: React.ReactNode;
   className: string;
   href: string;
   activeClasses: string;
+  exactMatchOnly?: boolean;
 }) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = exactMatchOnly ? pathname === href : pathname.includes(href);
 
   return (
     <Link
