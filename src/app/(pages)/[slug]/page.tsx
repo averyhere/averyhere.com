@@ -12,7 +12,6 @@ export async function generateStaticParams() {
   const pageSlugs: any[] = pages!.map((page)=>{
     return {slug: page.slug};
   })
-  console.log("🚀 ~ pageSlugs ~ pageSlugs:", pageSlugs)
 
   return pageSlugs;
 }
