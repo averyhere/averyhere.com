@@ -30,8 +30,8 @@ export default async function PrivatePage() {
           {pages?.map((entry: any) => (
             <article className="py-4 relative flex justify-between" key={entry.id}>
               <div>
-                <h2 className="font-bold text-xl mr-2 leading-1">{entry.title}</h2>
-                <span className='font-light text-xs leading-1'>/{entry.slug}/</span>
+                <h2 className="font-bold text-xl mr-2 mb-2 leading-1">{entry.title}</h2>
+                <Link className='font-light text-xs leading-1' href={`/${entry.slug}/`}>{process.env.NEXT_PUBLIC_FRONTEND_URL}/{entry.slug}/</Link>
               </div>
               <div>
                 <Link
