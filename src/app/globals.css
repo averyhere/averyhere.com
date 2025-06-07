@@ -135,14 +135,14 @@ body {
   stroke: var(--navitem-active) !important;
 }
 
-.footer-quote {
+.blockquote {
   position: relative;
   margin: 0 1rem;
   padding: 1rem 2rem;
 }
 
-.footer-quote p:before,
-.footer-quote p:after {
+.blockquote p:before,
+.blockquote p:after {
   position: absolute;
   display: flex;
   align-items: end;
@@ -152,20 +152,20 @@ body {
   height: 1.75rem;
 }
 
-.footer-quote p:before {
+.blockquote p:before {
   content: '“';
   top: 0;
   left: .125rem;
 }
-.footer-quote p:after {
+.blockquote p:after {
   content: '”';
   bottom: .75rem;
   right: .125rem;
 }
-.footer-quote cite {
+.blockquote cite {
   position: relative;
 }
-.footer-quote cite:before {
+.blockquote cite:before {
   content: "–";
   margin-right: .5ch;
 }
