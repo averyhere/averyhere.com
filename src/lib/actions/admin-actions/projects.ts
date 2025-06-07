@@ -31,7 +31,7 @@ export async function upsertProject(formData: FormData) {
   }
 
   revalidatePath(`/projects/`, 'layout')
-  revalidatePath(`/admin/list/projects/`, 'layout')
+  revalidatePath(`/admin/projects/`, 'layout')
 
   if (projectId) {
     return { success: 'Project updated' }
@@ -62,6 +62,6 @@ export async function deleteProject(formData: FormData) {
   }
 
   revalidatePath(`/projects/`, 'layout')
-  revalidatePath(`/admin/list/projects/`, 'layout')
-  redirect('/admin/list/projects/?success=project+deleted')
+  revalidatePath(`/admin/projects/`, 'layout')
+  redirect('/admin/projects/?success=project+deleted')
 }

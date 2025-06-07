@@ -30,7 +30,7 @@ export async function upsertExperience(formData: FormData) {
   }
 
   revalidatePath(`/experience/`, 'layout')
-  revalidatePath(`/admin/list/experience/`, 'layout')
+  revalidatePath(`/admin/experience/`, 'layout')
 
   if (jobId) {
     return { success: 'Experience updated' }
@@ -62,6 +62,6 @@ export async function deleteExperience(formData: FormData) {
   }
 
   revalidatePath(`/experience/`, 'layout')
-  revalidatePath(`/admin/edit/experience/`, 'layout')
-  redirect('/admin/list/experience/?success=job+deleted')
+  revalidatePath(`/admin/experience/`, 'layout')
+  redirect('/admin/experience/?success=job+deleted')
 }
