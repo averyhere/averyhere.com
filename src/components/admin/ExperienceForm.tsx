@@ -2,14 +2,14 @@
 
 import { upsertExperience, deleteExperience } from '@/lib/actions/admin-actions/experience'
 import buttonStyles from "@/components/ui/Button/button.module.css"
-import { useRef, useEffect, useState } from 'react';
-import { Toast, RichTextEditor } from '@/components/ui'
+import { useRef, useEffect } from 'react';
+import { RichTextEditor } from '@/components/ui'
+import { CustomToast } from "@/components/ui/Toast"
+import { toast } from "react-toastify"
 
 // eslint-disable-next-line
 export const ExperienceForm = ({data}: {data?: any}) => {
   const ref = useRef(null);
-  const [errorMessage, setErrorMessage] = useState<null|string>(null);
-  const [successMessage, setSuccessMessage] = useState<null|string>(null);
 
   const handleUpdate = async (formData: FormData) => {
     // eslint-disable-next-line
@@ -17,9 +17,17 @@ export const ExperienceForm = ({data}: {data?: any}) => {
     const { error, success } = await upsertExperience(formData);
 
     if (error) {
-      setErrorMessage(error);
+      toast.error(CustomToast, {
+        data: {
+          message: error
+        }
+      })
     } else if (success) {
-      setSuccessMessage(success);
+      toast.success(CustomToast, {
+        data: {
+          message: success
+        }
+      })
     }
   }
 
@@ -27,7 +35,11 @@ export const ExperienceForm = ({data}: {data?: any}) => {
     const { error } = await deleteExperience(formData);
 
     if (error) {
-      setErrorMessage(error);
+      toast.error(CustomToast, {
+        data: {
+          message: error
+        }
+      })
     }
   }
 
@@ -91,14 +103,6 @@ export const ExperienceForm = ({data}: {data?: any}) => {
       </div>
 
     </form>
-        
-    {errorMessage && (
-      <Toast message={errorMessage} variant="error" />
-    )}
-
-    {successMessage && (
-      <Toast message={successMessage} variant="success" />
-    )}
     </>
   )
 }

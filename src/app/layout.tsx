@@ -3,7 +3,7 @@ import { Lexend_Deca } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
-
+import { CustomToastContainer } from '@/components/ui/Toast';
 import ThemeToggle from "@/components/ui/ThemeToggle"
 import ThemeProvider from "@/hooks/theme-provider";
 
@@ -37,6 +37,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeToggle />
           {children}
+          <CustomToastContainer />
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

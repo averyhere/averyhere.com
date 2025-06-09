@@ -3,19 +3,16 @@
 import { createClient } from "@/utils/supabase/server"
 import { redirect } from "next/navigation"
 
-export const verifyMFA = async (formData: FormData) => {
+export const verifyMFA = async (code: string) => {
     const supabase = await createClient()
-
-    const verificationCode = formData.get('verifyCode') as string
-    // console.log("verificationCode-->", verificationCode)
 
     // check the list factors of user
     const factors = await supabase.auth.mfa.listFactors()
     if (factors.error) {
     //   throw factors.error
 
-        redirect(`/error/?message=${encodeURIComponent(factors.error.message)}`)
-      // return { error: factors.error?.message }
+        // redirect(`/error/?message=${encodeURIComponent(factors.error.message)}`)
+      return { error: factors.error?.message }
     }
 
     // console.log('factors', factors.data.all)
@@ -26,8 +23,8 @@ export const verifyMFA = async (formData: FormData) => {
     if (!totp) {
         // throw new Error('No TOTP factors found!')
 
-        redirect('/error/?message=No+TOTP+factors+found!')
-        // return { error: 'No TOTP factors found!'}
+        // redirect('/error/?message=No+TOTP+factors+found!')
+        return { error: 'No TOTP factors found!'}
     }
 
     const factorId = factors.data.all[0].id
@@ -42,9 +39,9 @@ export const verifyMFA = async (formData: FormData) => {
 
     if (challenge.error) {
         // console.log(challenge.error.message)
-        redirect(`/error/?message=${encodeURIComponent(challenge.error.message)}`)
+        // redirect(`/error/?message=${encodeURIComponent(challenge.error.message)}`)
         // throw challenge.error
-        // return { error: challenge.error.message }
+        return { error: challenge.error.message }
     }
 
     const challengeId = challenge.data.id
@@ -54,14 +51,14 @@ export const verifyMFA = async (formData: FormData) => {
     const verify = await supabase.auth.mfa.verify({
         factorId,
         challengeId,
-        code: verificationCode
+        code: code
     })
 
     if (verify.error) {
         // console.log(verify.error.message)
-        redirect(`/error/?message=${encodeURIComponent(verify.error.message)}`)
+        // redirect(`/error/?message=${encodeURIComponent(verify.error.message)}`)
         // throw verify.error
-        // return { error: verify.error.message }
+        return { error: verify.error.message }
     }
 
     // Set a success message in the session
@@ -72,13 +69,12 @@ export const verifyMFA = async (formData: FormData) => {
 
     if (error) {
         // console.log(error.message)
-        redirect(`/error/?message=${encodeURIComponent(error.message)}`)
+        // redirect(`/error/?message=${encodeURIComponent(error.message)}`)
         // throw error
-        // return { error: error.message }
+        return { error: error.message }
     }
 
     // Redirect with success message
-    redirect('/admin/?mfaVerified=true')
-
+    redirect('/admin/')
 
 }

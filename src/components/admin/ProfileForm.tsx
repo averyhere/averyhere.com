@@ -8,27 +8,36 @@ import { unEnrollMFA } from "@/lib/actions/mfa/unEnrollMfa";
 import buttonStyles from "@/components/ui/Button/button.module.css"
 import { Toast } from '@/components/ui'
 import Image from 'next/image'
+import { CustomToast } from "@/components/ui/Toast"
+import MfaVerificationForm from "../auth/MfaForm";
+import { toast } from "react-toastify"
 
 // eslint-disable-next-line
 export const ProfileForm = ({data}: {data: any}) => {
   const [isPasswordChange, setIsPasswordChange] = useState<boolean>(false)
-  const [errorMessage, setErrorMessage] = useState<null|string>(null);
-  const [successMessage, setSuccessMessage] = useState<null|string>(null);
   const [qrCode, setQrCode] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
     const { error, success } = await updateProfile(formData);
     if (error) {
-      setErrorMessage(error);
+      toast.error(CustomToast, {
+        data: {
+          message: error
+        }
+      })
     } else if (success) {
-      setSuccessMessage(success);
+      toast.success(CustomToast, {
+        data: {
+          message: success
+        }
+      })
     }
   }
 
   const handleEnrollMfa = async () => {
     const mfa = await enrollMFA();
-    // console.log("MFA-->", mfa);
     setQrCode(mfa.totp.qr_code);
+    // console.log("MFA-->", mfa);
   };
 
   // eslint-disable-next-line
@@ -78,93 +87,43 @@ export const ProfileForm = ({data}: {data: any}) => {
         <button type="submit" className={`${buttonStyles.button} col-start-2 justify-self-end`}>Update</button>
       </form>
 
-
-      <form className="grid gap-4 mt-4 items-center">
-        <fieldset className="grid grid-col-1 gap-4 border border-purple p-4 pt-2">
-          <legend className="text-xl">Two factor authentication</legend>
-
-          <div className="flex flex-col justify-center">
-            {!isMFAEnabled && (
-              <>
-                <button 
-                  type="button" 
-                  className={`${buttonStyles.button}`}
-                  onClick={() => handleEnrollMfa()}
-                >
-                  Enable 2FA
-                </button>
-                {qrCode && (
-                  <>
-                    <div className="flex flex-col md:flex-row">
-                      <p>Scan the QR code with your authenticator app and enter the verification code below.</p>
-                      <div className="inline-block border p-1 rounded-lg bg-white">
-                        <Image
-                          src={qrCode}
-                          alt="MFA QR Code"
-                          width={200}
-                          height={200}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex gap-2 col-start-2 col-span-2 items-end">
-                      <div className="flex flex-col w-full">
-                        <label htmlFor="verificationCode">Verify code:</label>
-                        <input 
-                          name="verifyCode" 
-                          id="verificationCode" 
-                          type="text" 
-                          className="bg-purple/20 p-2 border border-purple"
-                          placeholder="Enter verification code"
-                          required 
-                        />
-                      </div>
-
-                      <div className="flex flex-col w-full">
-                        <label htmlFor="friendlyName">Device name:</label>
-                        <input 
-                          name="friendlyName" 
-                          id="friendlyName" 
-                          type="text" 
-                          className="bg-purple/20 p-2 border border-purple"
-                          placeholder="Enter a unique device name"
-                          required 
-                        />
-                      </div>
-
-                      <button 
-                        type="submit" 
-                        className={`${buttonStyles.button}`}
-                        style={{marginBottom: '0'}}
-                        formAction={verifyMFA}
-                      >
-                        Verify
-                      </button>
-                    </div>
-                  </>
-                )}
-              </>
-            )}
-
-            {isMFAEnabled && (
-              <button 
-                type="button" 
-                className={`${buttonStyles.button}`}
-                onClick={() => unEnrollMFA()}
-              >
-                Disable 2FA
-              </button>
-            )}
-          </div>
-        </fieldset>
-      </form>
-
-      {errorMessage && (
-        <Toast message={errorMessage} variant="error" />
-      )}
-
-      {successMessage && (
-        <Toast message={successMessage} variant="success" />
-      )}
+      <fieldset className="grid grid-col-1 gap-4 border border-purple p-4 pt-2">
+        <legend className="text-xl">Two factor authentication</legend>
+        {!isMFAEnabled && !qrCode && (
+          <button 
+            type="button" 
+            className={`${buttonStyles.button}`}
+            onClick={() => handleEnrollMfa()}
+          >
+            Enable 2FA
+          </button>
+        )}
+        {!isMFAEnabled && qrCode && (
+          <>
+            <div className="flex flex-col md:flex-row">
+              <p>Scan the QR code with your authenticator app and enter the verification code below.</p>
+              <div className="inline-block border p-1 rounded-lg bg-white">
+                <Image
+                  src={qrCode}
+                  alt="MFA QR Code"
+                  width={200}
+                  height={200}
+                />
+              </div>
+            </div>
+            <MfaVerificationForm />
+          </>
+        )}
+        {isMFAEnabled && (
+          <button 
+            type="button" 
+            className={`${buttonStyles.button}`}
+            onClick={() => unEnrollMFA()}
+          >
+            Disable 2FA
+          </button>
+        )}
+      </fieldset>
     </>
   )
 }

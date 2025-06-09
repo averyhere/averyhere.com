@@ -3,25 +3,33 @@
 import { upsertPage, deletePage } from '@/lib/actions/admin-actions/pages'
 import buttonStyles from "@/components/ui/Button/button.module.css"
 import { useRef, useEffect, useState } from 'react';
-import { Toast, RichTextEditor } from '@/components/ui'
+import { RichTextEditor } from '@/components/ui'
+import { CustomToast } from "@/components/ui/Toast"
+import { toast } from "react-toastify"
 
 // eslint-disable-next-line
 export const PageForm = ({data}: {data?: any}) => {
   const [formData, setFormData] = useState(data)
-  const [errorMessage, setErrorMessage] = useState<null|string>(null);
-  const [successMessage, setSuccessMessage] = useState<null|string>(null);
   const ref = useRef(null);
 
   const handleUpdate = async (submittedData: FormData) => {
     // eslint-disable-next-line
     submittedData.append('content',(ref?.current as any)?.getContent())
     const { error, success, data } = await upsertPage(submittedData);
-      setFormData(data);
+    setFormData(data);
 
     if (error) {
-      setErrorMessage(`${error}`);
+      toast.error(CustomToast, {
+        data: {
+          message: error
+        }
+      })
     } else if (success) {
-      setSuccessMessage(success);
+      toast.success(CustomToast, {
+        data: {
+          message: success
+        }
+      })
     }
   }
 
@@ -29,7 +37,11 @@ export const PageForm = ({data}: {data?: any}) => {
     const { error } = await deletePage(submittedData);
 
     if (error) {
-      setErrorMessage(error);
+      toast.error(CustomToast, {
+        data: {
+          message: error
+        }
+      })
     }
   }
 
@@ -84,14 +96,6 @@ export const PageForm = ({data}: {data?: any}) => {
       </div>
 
     </form>
-    
-    {errorMessage && (
-      <Toast message={errorMessage} variant="error" />
-    )}
-
-    {successMessage && (
-      <Toast message={successMessage} variant="success" />
-    )}
     </>
   )
 }

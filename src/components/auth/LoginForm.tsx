@@ -2,16 +2,18 @@
 
 import { loginAction } from '@/lib/actions/login'
 import buttonStyles from "@/components/ui/Button/button.module.css"
-import { useState } from "react"
-import { Toast } from "@/components/ui"
+import { CustomToast } from "@/components/ui/Toast"
+import { toast } from "react-toastify"
 
 export const LoginForm = () => {
-  const [error, setError] = useState<null|string>(null);
-
   const handleSubmit = async (formData: FormData) => {
     const { error: loginError } = await loginAction(formData);
     if (loginError) {
-      setError(loginError);
+      toast.error(CustomToast,{
+        data: {
+          message: loginError
+        }
+      })
     }
   }
   
@@ -28,9 +30,6 @@ export const LoginForm = () => {
         </div>
         <button type="submit" className={`${buttonStyles.button} !justify-center !w-full`}>Login</button>
       </form>
-      {error && (
-        <Toast variant='error' message={error} />
-      )}
     </>
   )
 }

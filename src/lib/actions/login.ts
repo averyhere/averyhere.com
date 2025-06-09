@@ -23,7 +23,7 @@ export async function loginAction(formData: FormData) {
   if (assuranceLevel.data?.nextLevel === 'aal2' &&
       assuranceLevel.data?.nextLevel !== assuranceLevel.data?.currentLevel) {
 
-      redirect('/verify-mfa/')
+      redirect('/login/mfa/')
       
   }
 
