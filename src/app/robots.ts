@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin/','/login/','/verify-mfa/','/error/'],
+      disallow: ['/admin/','/login/','/login/mfa/','/error/'],
     },
     sitemap: 'https://averyhere.com/sitemap.xml',
   }
