@@ -8,7 +8,7 @@ import {
 } from "react-icons/pi";
 import { createClient } from '@/utils/supabase/server'
 import { NavLink } from '@/components/ui'
-import { AveryOndoLogo } from "@/components/logos"
+import { AveryOndoLogo, AveryIcon } from "@/components/logos"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -36,6 +36,7 @@ export const AdminNav = async () => {
         </nav>
       </div>
       <ul className='flex flex-col gap-4 mt-1'>
+        <li><Link href="/" className='flex px-2 items-center gap-2 text-white/90 hover:text-white border-0 border-l-4 border-transparent text-sm capitalize hover:no-underline'><AveryIcon className='size-4' /> View site</Link></li>
         <li><LogoutButton variant='link' icon className='flex px-2 items-center gap-1 text-white/90 hover:text-white border-0 border-l-4 border-transparent text-sm capitalize hover:no-underline' /></li>
         <li className='text-white text-xs px-2 pb-1'>© Avery Ondo</li>
       </ul>
