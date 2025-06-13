@@ -32,7 +32,12 @@ export default async function PrivatePage({
     )
   }
 
-  return <ExperienceForm data={data} />;
+  return (
+    <main id="main-content" className='max-w-xl'>
+      <h1 className="text-3xl font-bold">Edit Experience</h1>
 
+      <ExperienceForm data={data} />
+    </main>
+  )
 
 }

@@ -42,6 +42,7 @@
   --color-blue: var(--blue);
   --color-pink: var(--pink);
   --color-bright-purple: var(--bright-purple);
+  --color-black: var(--black);
 }
 
 @media print {
@@ -200,4 +201,24 @@ body {
 }
 .Toastify__close-button {
   right: 14px;
+}
+
+.toggle-field {
+  @apply flex p-1 justify-start w-12 bg-purple/20 rounded-full h-6;
+}
+
+.toggle-field > span {
+  @apply size-4 rounded-full bg-bright-purple;
+}
+
+.toggle-field > input {
+  @apply invisible hidden;
+}
+
+.toggle-field:has(input:checked) {
+  @apply justify-end bg-blue;
+}
+
+.toggle-field:has(input:checked) > span {
+  @apply bg-bright-purple;
 }

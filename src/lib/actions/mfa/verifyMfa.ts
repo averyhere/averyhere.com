@@ -75,6 +75,6 @@ export const verifyMFA = async (code: string) => {
     }
 
     // Redirect with success message
-    redirect('/admin/')
+    return { success: true }
 
 }

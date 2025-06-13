@@ -16,7 +16,14 @@ export default async function PrivatePage() {
     redirect('/login/')
   }
 
-  return <PageForm />;
+
+  return (
+    <main id="main-content" className='max-w-xl'>
+      <h1 className="text-3xl font-bold">Edit Experience</h1>
+
+      <PageForm />
+    </main>
+  )
 
 
 }

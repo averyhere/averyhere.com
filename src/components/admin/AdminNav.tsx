@@ -8,6 +8,9 @@ import {
 } from "react-icons/pi";
 import { createClient } from '@/utils/supabase/server'
 import { NavLink } from '@/components/ui'
+import { AveryOndoLogo } from "@/components/logos"
+import Link from "next/link"
+import Image from "next/image"
 
 export const AdminNav = async () => {
   const supabase = await createClient()
@@ -17,17 +20,25 @@ export const AdminNav = async () => {
   }
 
   return (
-    <nav className='w-full flex items-center flex-wrap gap-4 justify-between align text-xs'>
-      <ul className='flex flex-wrap gap-4 mt-1 justify-center'>
-        <li><NavLink href="/admin/" className='flex items-center gap-1 text-bright-purple dark:text-pink border-0 border-b-4 border-transparent' activeClasses='border-blue' exactMatchOnly><PiSpeedometerDuotone className="size-6" /> Dashboard</NavLink></li>
-        <li><NavLink href="/admin/pages/" className='flex items-center gap-1 text-bright-purple dark:text-pink border-0 border-b-4 border-transparent' activeClasses='border-blue'><PiArticleDuotone className="size-6" /> Pages</NavLink></li>
-        <li><NavLink href="/admin/experience/" className='flex items-center gap-1 text-bright-purple dark:text-pink border-0 border-b-4 border-transparent' activeClasses='border-blue'><PiBuildingOfficeDuotone className="size-6" /> Experience</NavLink></li>
-        <li><NavLink href="/admin/projects/" className='flex items-center gap-1 text-bright-purple dark:text-pink border-0 border-b-4 border-transparent' activeClasses='border-blue'><PiPuzzlePieceDuotone className="size-6" /> Projects</NavLink></li>
-        <li><NavLink href="/admin/profile/" className='flex items-center gap-1 text-bright-purple dark:text-pink border-0 border-b-4 mb-1.5 border-transparent' activeClasses='border-blue'><PiGearSixDuotone className="size-6" /> Settings</NavLink></li>
+    <aside className='w-48 bg-black dark:bg-white/5 h-dvh sticky top-0 flex flex-col justify-between'>
+      <div>
+        <Link href="/admin/">
+          <AveryOndoLogo className="w-full px-2 pt-4 pb-4 h-auto" />
+        </Link>
+        <nav className='w-full flex flex-col gap-4 align text-sm grow justify-between'>
+          <ul className='flex flex-col mt-1'>
+            <li><NavLink href="/admin/" className='flex p-2 items-center gap-1 text-white/90 hover:text-white border-0 border-l-4 border-transparent' activeClasses='border-pink text-pink bg-white/5 hover:text-pink' exactMatchOnly><PiSpeedometerDuotone className="size-6" /> Dashboard</NavLink></li>
+            <li><NavLink href="/admin/pages/" className='flex p-2 items-center gap-1 text-white/90 hover:text-white border-0 border-l-4 border-transparent' activeClasses='border-pink text-pink bg-white/5 hover:text-pink'><PiArticleDuotone className="size-6" /> Pages</NavLink></li>
+            <li><NavLink href="/admin/experience/" className='flex p-2 items-center gap-1 text-white/90 hover:text-white border-0 border-l-4 border-transparent' activeClasses='border-pink text-pink bg-white/5 hover:text-pink'><PiBuildingOfficeDuotone className="size-6" /> Experience</NavLink></li>
+            <li><NavLink href="/admin/projects/" className='flex p-2 items-center gap-1 text-white/90 hover:text-white border-0 border-l-4 border-transparent' activeClasses='border-pink text-pink bg-white/5 hover:text-pink'><PiPuzzlePieceDuotone className="size-6" /> Projects</NavLink></li>
+            <li><NavLink href="/admin/profile/" className='flex p-2 items-center gap-1 text-white/90 hover:text-white border-0 border-l-4 mb-1.5 border-transparent' activeClasses='border-pink text-pink bg-white/5 hover:text-pink'><PiGearSixDuotone className="size-6" /> Settings</NavLink></li>
+          </ul>
+        </nav>
+      </div>
+      <ul className='flex flex-col gap-4 mt-1'>
+        <li><LogoutButton variant='link' icon className='flex px-2 items-center gap-1 text-white/90 hover:text-white border-0 border-l-4 border-transparent text-sm capitalize hover:no-underline' /></li>
+        <li className='text-white text-xs px-2 pb-1'>© Avery Ondo</li>
       </ul>
-      <ul className='flex flex-wrap gap-4 mt-1 justify-center'>
-        <li><LogoutButton /></li>
-      </ul>
-    </nav>
+    </aside>
   )
 }

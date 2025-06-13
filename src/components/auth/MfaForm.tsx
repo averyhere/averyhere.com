@@ -17,22 +17,27 @@ export default function MfaVerificationForm() {
       toast.error(CustomToast, {
         data: {
           message: res.error,
-        },
-        autoClose: false
+        }
+      });
+    } else {
+      toast(CustomToast, {
+        data: {
+          message: '2FA is now enabled',
+        }
       });
     }
+
+    setIsLoading(false);
   }
 
   return (
-    <>
-      <form className="grid grid-col-1 gap-4 w-full max-w-xs mx-auto">
-        <div className="flex flex-col gap-4">
-          <label htmlFor="verifyCode-0" className="text-center">
-            Enter your 6-digit verification code
-          </label>
-          <MfaInputField isLoading={isLoading} callback={handleCodeSubmit} />
-        </div>
-      </form>
-    </>
+    <form className="grid grid-col-1 gap-4 w-full max-w-xs mx-auto">
+      <div className="flex flex-col gap-4">
+        <label htmlFor="verifyCode-0" className="text-center">
+          Enter your 6-digit verification code
+        </label>
+        <MfaInputField isLoading={isLoading} callback={handleCodeSubmit} />
+      </div>
+    </form>
   );
 }

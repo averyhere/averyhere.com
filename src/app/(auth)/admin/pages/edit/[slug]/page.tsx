@@ -26,13 +26,19 @@ export default async function PrivatePage({
 
   if (error || !data) {
     return (
-      <main id="main-content">
+      <main id="main-content" className='max-w-4xl'>
         <h1 className="text-3xl font-bold">Error locating experience with id of {slug}</h1>
       </main>
     )
   }
 
-  return <PageForm data={data} />;
+  return (
+    <main id="main-content" className='max-w-xl'>
+      <h1 className="text-3xl font-bold">Edit Experience</h1>
+
+      <PageForm data={data} />
+    </main>
+  )
 
 
 }

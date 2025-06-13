@@ -32,7 +32,14 @@ export default async function PrivatePage({
     )
   }
 
-  return <ProjectForm data={data} />;
 
+  return (
+    <main id="main-content" className="max-w-xl">
+      <header>
+        <h1 className='text-3xl font-bold'>Edit Project</h1>
+      </header>
+      <ProjectForm data={data} />
+    </main>
+  );
 
 }

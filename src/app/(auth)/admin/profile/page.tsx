@@ -17,8 +17,8 @@ export default async function PrivatePage() {
   }
   
   return (
-    <main id="main-content">
-      <h1 className="text-3xl font-bold">Edit Profile</h1>
+    <main id="main-content" className='max-w-xl'>
+      <h1 className="text-3xl font-bold">My Profile</h1>
 
       <ProfileForm data={data.user} />
     </main>
