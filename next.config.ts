@@ -3,6 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   trailingSlash: true,
   reactStrictMode: false,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "toolbox.marketingtools.apple.com",
+        port: "",
+        pathname: "/api/v2/badges/download-on-the-app-store/**",
+      },
+    ],
+  },
   async redirects() {
     return [
       {
@@ -24,7 +34,7 @@ const nextConfig: NextConfig = {
         source: '/archive/:path',
         destination: '/',
         permanent: true,
-      },
+      }
     ]
   },
 };
