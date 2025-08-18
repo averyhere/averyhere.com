@@ -3,7 +3,7 @@ import { Button } from "@/components/ui";
 import { PiArrowSquareOutDuotone } from "react-icons/pi";
 import { work_experience } from "@/lib/data";
 
-export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Avery's Past Work Experience",

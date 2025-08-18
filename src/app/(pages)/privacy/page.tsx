@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+export const dynamic = "force-static";
+
 export default function Page() {
   return (
     <article className="prose prose-sm dark:prose-invert md:mt-32">

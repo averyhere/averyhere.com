@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Accordion, type AccordionItemType } from "@/components/ui";
 import { projects } from "@/lib/data";
 
-export const revalidate = 3600;
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Avery's Projects",

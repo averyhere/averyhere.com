@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Just Another Sudoku is on the App Store",
   description: "A free sudoku game available on the iOS App Store.",
