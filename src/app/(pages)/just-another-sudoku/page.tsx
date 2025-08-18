@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,28 +13,45 @@ export default async function Page() {
       <header className="prose text-center dark:prose-invert">
         <h1>I'm on the App Store!</h1>
       </header>
-
-      <aside className="flex flex-col items-center w-full">
-        <Icon size={150} />
-        <span className="font-light uppercase flex flex-col mb-4">
-          <span className="text-xl">Just Another</span>
-          <span className="text-4xl">Sudoku</span>
-        </span>
-        <Link
-          target="_blank"
-          href="https://apps.apple.com/us/app/just-another-sudoku/id6749923370?itscg=30200&itsct=apps_box_badge&mttnsubad=6749923370"
-        >
-          <img
-            src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1755129600"
-            alt="Download on the App Store"
-            style={{
-              height: "48px",
-              aspectRatio: 246 / 82,
-              objectFit: "contain",
-            }}
+      <div className="flex flex-col md:flex-row gap-8 items-center">
+        <div className="flex flex-col items-center text-center w-full">
+          <Icon size={150} />
+          <span className="font-light uppercase flex flex-col mb-4">
+            <span className="text-xl">Just Another</span>
+            <span className="text-4xl">Sudoku</span>
+          </span>
+          <Link
+            target="_blank"
+            href="https://apps.apple.com/us/app/just-another-sudoku/id6749923370?itscg=30200&itsct=apps_box_badge&mttnsubad=6749923370"
+          >
+            <img
+              src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1755129600"
+              alt="Download on the App Store"
+              style={{
+                height: "48px",
+                aspectRatio: 246 / 82,
+                objectFit: "contain",
+              }}
+            />
+          </Link>
+        </div>
+        <div className="flex flex-col items-center text-center w-full">
+          <Image
+            width={1320}
+            height={2868}
+            className="max-w-full rounded-3xl dark:hidden"
+            src="/images/just-another-sudoku-light.png"
+            alt="Screenshot of the Just Another Sudoku app on an iPhone in light mode"
           />
-        </Link>
-      </aside>
+          <Image
+            width={1320}
+            height={2868}
+            className="max-w-full rounded-3xl hidden dark:block"
+            src="/images/just-another-sudoku-dark.png"
+            alt="Screenshot of the Just Another Sudoku app on an iPhone in dark mode"
+          />
+        </div>
+      </div>
     </div>
   );
 }
