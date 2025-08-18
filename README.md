@@ -2,9 +2,8 @@
 
 # averyhere.com
 
-My personal website available at [https://averyhere.com](https://averyhere.com). Built with NextJS, Supabase, TailwindCSS, and deployed with Vercel.
+My personal website available at [https://averyhere.com](https://averyhere.com). Built with NextJS, TailwindCSS, and deployed with Vercel.
 
 - [Learn Next.js](https://nextjs.org/)
-- [Supabase](https://supabase.com/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Vercel Platform](https://vercel.com/)

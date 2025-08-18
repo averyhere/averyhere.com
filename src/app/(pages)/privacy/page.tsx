@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+export const dynamic = "force-static";
+
 export default function Page() {
   return (
     <article className="prose prose-sm dark:prose-invert md:mt-32">
@@ -16,7 +18,8 @@ export default function Page() {
           (including all subdomains)
         </li>
 
-        <li>The mobile application Just Another Sudoku</li>
+        <li>The mobile application Just Another Sudoku by Avery Ondo</li>
+        <li>The mobile application Simple Point Tracker by Avery Ondo</li>
       </ul>
 
       <p>

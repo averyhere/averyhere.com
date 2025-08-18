@@ -13,8 +13,9 @@ const eslintConfig = [
   ...compat.config({
     rules: {
       "react/no-unescaped-entities": "off",
+      "@typescript-eslint/no-unused-vars": "off",
     },
-    extends: ['next/core-web-vitals', 'next/typescript'],
+    extends: ["next/core-web-vitals", "next/typescript"],
   }),
 ];
 
