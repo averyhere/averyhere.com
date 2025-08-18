@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -49,7 +48,7 @@ const Icon = ({
     <svg
       {...props}
       width={width || size}
-      height={width || size}
+      height={height || size}
       viewBox="0 0 1024 1024"
       fill="none"
     >
