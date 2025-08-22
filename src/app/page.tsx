@@ -30,10 +30,10 @@ export default function Home() {
         <nav className={cn(["w-full text-center text-md md:text-xl mt-8"])}>
           <ul
             className={cn([
-              "w-full flex justify-center items-center gap-4 flex-wrap",
+              "w-full flex justify-center items-center gap-4 md:gap-8 flex-wrap",
             ])}
           >
-            <li className="w-auto md:w-full">
+            <li className="w-auto">
               <NavLink
                 href="/about/"
                 className="decoration-blue underline-offset-4 decoration-2 hover:underline"
@@ -42,7 +42,7 @@ export default function Home() {
                 about
               </NavLink>
             </li>
-            <li className="w-auto md:w-full">
+            <li className="w-auto">
               <NavLink
                 href="/experience/"
                 className="decoration-blue underline-offset-4 decoration-2 hover:underline"
@@ -51,7 +51,7 @@ export default function Home() {
                 experience
               </NavLink>
             </li>
-            <li className="w-auto md:w-full">
+            <li className="w-auto">
               <NavLink
                 href="/projects/"
                 className="decoration-blue underline-offset-4 decoration-2 hover:underline"
@@ -60,7 +60,7 @@ export default function Home() {
                 projects
               </NavLink>
             </li>
-            <li className="w-auto md:w-full">
+            <li className="w-auto">
               <NavLink
                 href="/just-another-sudoku/"
                 className="decoration-blue underline-offset-4 decoration-2 hover:underline"
@@ -69,7 +69,7 @@ export default function Home() {
                 sudoku
               </NavLink>
             </li>
-            <li className="w-auto md:w-full">
+            <li className="w-auto">
               <NavLink
                 href="/contact/"
                 className="decoration-blue underline-offset-4 decoration-2 hover:underline"
