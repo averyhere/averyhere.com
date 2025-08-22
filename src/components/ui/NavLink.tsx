@@ -17,7 +17,7 @@ export const NavLink = ({
   href: string;
   activeClasses: string;
   exactMatchOnly?: boolean;
-  onClick: (e?: any) => void;
+  onClick?: (e?: any) => void;
 }) => {
   const pathname = usePathname();
   const isActive = exactMatchOnly ? pathname === href : pathname.includes(href);

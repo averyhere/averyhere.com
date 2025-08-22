@@ -11,9 +11,9 @@ export const SiteHeader = async ({
 }) => {
   return (
     <header
-      className={`w-full h-max md:sticky flex md:flex-col gap-8 py-2 md:gap-4 md:py-0 items-center md:justify-center md:min-h-dvh md:top-0 ${className}`}
+      className={`w-full pt-2 h-max md:sticky flex md:flex-col gap-8 md:gap-4 items-start justify-between md:justify-center md:min-h-dvh md:top-0 ${className}`}
     >
-      <Link href="/" className="w-full h-auto max-w-3xs mb-2">
+      <Link href="/" className="w-full h-auto max-w-3xs mb-2 z-50">
         <AveryOndoLogo className="w-full h-auto hidden md:block" />
         <AveryOndoLogo
           variant="horizontal"
