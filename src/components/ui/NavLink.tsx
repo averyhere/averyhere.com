@@ -17,6 +17,7 @@ export const NavLink = ({
   href: string;
   activeClasses: string;
   exactMatchOnly?: boolean;
+  // eslint-disable-next-line
   onClick?: (e?: any) => void;
 }) => {
   const pathname = usePathname();
