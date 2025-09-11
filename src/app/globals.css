@@ -5,15 +5,14 @@
 /* Tailwind Config */
 @layer base {
   :root {
-
     /* Colors */
 
     --white: #ffffff;
     --black: #171717;
-    --pink: #F184D5;
-    --blue: #66C7F1;
-    --purple: #ACA6E3;
-    --bright-purple: #A41EF1;
+    --pink: #f184d5;
+    --blue: #66c7f1;
+    --purple: #aca6e3;
+    --bright-purple: #a41ef1;
 
     --color-background: var(--white);
     --color-foreground: var(--black);
@@ -46,22 +45,25 @@
 }
 
 @media print {
+  [className="print:block"] {
+    display: block;
+  }
   .dark {
-      --white: #ffffff;
-      --black: #171717;
-      --pink: #F184D5;
-      --blue: #66C7F1;
-      --purple: #ACA6E3;
-      --bright-purple: #A41EF1;
-  
-      --color-background: var(--white);
-      --color-foreground: var(--black);
-  
-      --navitem-active: var(--bright-purple);
-  
-      --button-bg: var(--bright-purple);
-      --button-shadow: var(--purple);
-      --button-text: var(--white);
+    --white: #ffffff;
+    --black: #171717;
+    --pink: #f184d5;
+    --blue: #66c7f1;
+    --purple: #aca6e3;
+    --bright-purple: #a41ef1;
+
+    --color-background: var(--white);
+    --color-foreground: var(--black);
+
+    --navitem-active: var(--bright-purple);
+
+    --button-bg: var(--bright-purple);
+    --button-shadow: var(--purple);
+    --button-text: var(--white);
   }
 }
 
@@ -157,21 +159,21 @@ body {
 }
 
 .blockquote p:before {
-  content: '“';
+  content: "“";
   top: 0;
-  left: .125rem;
+  left: 0.125rem;
 }
 .blockquote p:after {
-  content: '”';
-  bottom: .75rem;
-  right: .125rem;
+  content: "”";
+  bottom: 0.75rem;
+  right: 0.125rem;
 }
 .blockquote cite {
   position: relative;
 }
 .blockquote cite:before {
   content: "–";
-  margin-right: .5ch;
+  margin-right: 0.5ch;
 }
 
 /* Toasts */
@@ -180,7 +182,7 @@ body {
   padding: 8px 14px 14px 14px;
 }
 .Toastify__toast:after {
-  content: '';
+  content: "";
   @apply bg-blue w-full h-full absolute -top-1 -left-1 -z-10;
 }
 .Toastify__toast-icon {

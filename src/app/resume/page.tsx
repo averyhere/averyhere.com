@@ -28,6 +28,11 @@ export default async function Page() {
             Developer, Marketer, Adventurer
           </p>
           <address className="not-italic text-sm">
+            location:{" "}
+            <span className="text-bright-purple dark:text-pink print:text-bright-purple">
+              Denver, CO, USA
+            </span>
+            <br />
             e-mail:{" "}
             <Link
               className="text-bright-purple dark:text-pink print:text-bright-purple"
@@ -87,7 +92,7 @@ export default async function Page() {
           {work_experience?.map((entry) => (
             <article
               className="relative w-full print:break-inside-avoid"
-              key={entry.id}
+              key={`exp_${entry.order}`}
             >
               <header>
                 <h3 className="font-bold inline">{entry.title}</h3>
