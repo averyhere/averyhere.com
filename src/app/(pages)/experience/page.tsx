@@ -32,7 +32,7 @@ export default async function Page() {
         <div className="space-y-6 border-l-2 border-dashed">
           {work_experience.length &&
             work_experience?.map((entry) => (
-              <article className="relative w-full" key={`exp_${entry.order}`}>
+              <article className="relative w-full" key={`exp_${entry.id}`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

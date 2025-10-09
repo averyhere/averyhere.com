@@ -92,7 +92,7 @@ export default async function Page() {
           {work_experience?.map((entry) => (
             <article
               className="relative w-full print:break-inside-avoid"
-              key={`exp_${entry.order}`}
+              key={`exp_${entry.id}`}
             >
               <header>
                 <h3 className="font-bold inline">{entry.title}</h3>

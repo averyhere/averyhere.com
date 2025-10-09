@@ -2,7 +2,7 @@ import { AccordionItemType } from "@/components/ui";
 
 const work_experience = [
   {
-    order: 1,
+    id: 1,
     company_name: "EverCommerce",
     title: "Director of Web Development",
     start_date: "August, 2019",
@@ -11,7 +11,7 @@ const work_experience = [
       "<p><strong>Team Building and Leadership</strong>: Established and grew the centralized web development team from scratch.</p>\n<p><strong>Collaboration</strong>: Partnered with various departments to build, manage, and maintain approximately 50 WordPress websites.</p>\n<p><strong>Technical Solutions</strong>: Developed and implemented solutions for web analytics, lead attribution tracking, and conversion rate optimization.</p>\n<p><strong>Innovation</strong>: Pioneered the development of scalable headless WordPress websites, creating comprehensive documentation and an RFC process to facilitate team engagement.</p>\n<p><strong>Mentorship</strong>: Guided and trained team members from junior to senior levels on the latest web technologies, including React/Next.js, and marketing technologies like Marketo.</p>",
   },
   {
-    order: 2,
+    id: 2,
     company_name: "Intelligent Demand",
     title: "Senior Front-End Developer",
     start_date: "February, 2015",
@@ -20,7 +20,7 @@ const work_experience = [
       "<p>Owned the conversion of original visual design concepts to bulletproof front-end implementations. Built, tested and deployed client websites, as well as multi-channel campaigns in marketing automation platforms.</p>",
   },
   {
-    order: 3,
+    id: 3,
     company_name: "Grayson Sky",
     title: "Lead Web Developer",
     start_date: "May, 2014",
@@ -29,7 +29,7 @@ const work_experience = [
       "<p>Developed and managed multiple projects. Managed the development team, produced and presented scopes to clients. Assisted in the design of websites and other branding aspects.</p>",
   },
   {
-    order: 4,
+    id: 4,
     company_name: "Freelance",
     title: "Web Designer & Developer",
     start_date: "December, 2010",
@@ -41,7 +41,7 @@ const work_experience = [
 
 const projects = [
   {
-    order: 2,
+    id: 2,
     title: "Bald Yeti",
     subtitle: "WordPress Theme",
     overview:
@@ -50,7 +50,7 @@ const projects = [
     link_url: "https://github.com/theyetiweb/bald-yeti",
   },
   {
-    order: 6,
+    id: 6,
     title: "Web Analytics Platform Migration",
     subtitle: "Google Analytics to Heap Analytics",
     overview:
@@ -59,7 +59,7 @@ const projects = [
     link_url: null,
   },
   {
-    order: 5,
+    id: 5,
     title: "Headless WordPress Foundations",
     subtitle: "React, NextJS, WordPress",
     overview:
@@ -68,7 +68,7 @@ const projects = [
     link_url: null,
   },
   {
-    order: 7,
+    id: 7,
     title: "Scaling Website Builds & Migrations",
     subtitle: "WordPress, Headless WordPress",
     overview:
@@ -77,7 +77,7 @@ const projects = [
     link_url: null,
   },
   {
-    order: 4,
+    id: 4,
     title: "Marketo Forms for WP",
     subtitle: "WordPress Plugin",
     overview:
@@ -86,7 +86,7 @@ const projects = [
     link_url: "https://www.listen360.com/request-a-demo/",
   },
   {
-    order: 8,
+    id: 8,
     title: "Minecraft Projects",
     subtitle: "Minecraft (Java Edition)",
     overview:
@@ -95,7 +95,7 @@ const projects = [
     link_url: "https://modrinth.com/user/averyh3r3",
   },
   {
-    order: 1,
+    id: 1,
     title: "TailwindCSS Config Generator for Flowbite",
     subtitle: "Figma Plugin",
     overview:
@@ -105,7 +105,7 @@ const projects = [
       "https://www.figma.com/community/plugin/1372697425539501289/tailwindcss-config-generator-for-flowbite",
   },
   {
-    order: 3,
+    id: 3,
     title: "Updox Interactive Calculators",
     subtitle: "WordPress Plugin, VueJS, HubSpot",
     overview:
