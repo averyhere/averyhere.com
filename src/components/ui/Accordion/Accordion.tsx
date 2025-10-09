@@ -19,6 +19,7 @@ export const Accordion = ({ data }: { data: AccordionItemType[] }) => {
 
 export type AccordionItemType = {
   id: number;
+  order: number;
   title: string;
   subtitle: string;
   overview: string;

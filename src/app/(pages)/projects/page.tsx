@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  const sortedProjects = projects.sort((a, b) => a.order - b.order);
+
   return (
     <section className="flex flex-col md:pt-20">
       <header className="mb-4">
@@ -18,7 +20,7 @@ export default async function Page() {
           Click or tap on a project below to read more about it.
         </p>
       </header>
-      <Accordion data={projects as AccordionItemType[]} />
+      <Accordion data={sortedProjects as AccordionItemType[]} />
     </section>
   );
 }
