@@ -16,26 +16,31 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/bio',
-        destination: '/about/',
+        source: "/bio",
+        destination: "/about/",
         permanent: true,
       },
       {
-        source: '/archive',
-        destination: '/',
+        source: "/archive",
+        destination: "/",
         permanent: true,
       },
       {
-        source: '/my-work',
-        destination: '/experience/',
+        source: "/my-work",
+        destination: "/experience/",
         permanent: true,
       },
       {
-        source: '/archive/:path',
-        destination: '/',
+        source: "/archive/:path",
+        destination: "/",
         permanent: true,
-      }
-    ]
+      },
+      {
+        source: "/boker",
+        destination: "/boker.pdf",
+        permanent: false,
+      },
+    ];
   },
 };
 
