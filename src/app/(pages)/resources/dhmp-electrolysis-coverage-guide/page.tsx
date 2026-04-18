@@ -28,45 +28,47 @@ export default function Page() {
           <h2 className="text-3xl font-bold">
             Electrolysis/Laser Hair Removal Coverage Guide for DHMP
           </h2>
-          <p className="text-sm font-light">
-            For members of Denver Health Medical Plan (DHMP)
+          <p className="mb-4 font-light">
+            For individuals enrolled in a Denver Health Medical Plan
           </p>
+          <p className="text-sm font-light">Last updated: April 18, 2026</p>
         </header>
         <section>
           <h2 className="my-4 text-xl font-bold">Introduction & Disclaimer</h2>
-          <p className="text-sm font-light my-2">
-            This guide is intended to help folks who have a Denver Health
-            Elevate Medical Plan (DHMP) navigate the process for ensuring their
-            electrolysis and/or laser hair removal sessions are covered
-            correctly. This is the result of my own journey, and is a
-            culmination of months of work, conversations with DHMP, medical
-            providers, and electrolysis/laser hair removal professionals. It can
-            be a confusing process, so I hope you find this useful in your own
-            journey.
-          </p>
-          <p className="text-sm font-light my-2">
-            This guide is based on my personal experience with DHMP and may not
-            be applicable to other insurance providers. If you have a different
-            insurance provider, I recommend reaching out to them directly to
-            inquire about coverage for electrolysis and laser hair removal, as
-            well as the process for obtaining pre-authorization and
-            reimbursement.
-          </p>
-          <p className="text-sm font-light my-2">
-            <strong>
-              This guide is not intended as legal or medical advice
-            </strong>
-            , but rather as a resource to help navigate the process for these
-            specific services. Always consult with your healthcare provider and
-            insurance company for personalized guidance and information about
-            your medical needs and coverage.
-          </p>
+          <div className="prose prose-sm dark:prose-invert">
+            <p>
+              This guide is intended to help individuals who have a Denver
+              Health "Elevate" Medical Plan (DHMP) navigate the process for
+              ensuring their electrolysis and/or laser hair removal sessions are
+              covered correctly. This is the culmination of months of work,
+              conversations with DHMP, medical providers, and electrolysis/laser
+              hair removal professionals. It can be a confusing process, so I
+              hope you find this useful in your own journey.
+            </p>
+            <p>
+              This guide is based on my personal experience with DHMP. It is not
+              applicable to other insurance providers. If you have a different
+              insurance provider, reach out to them directly to inquire about
+              coverage for electrolysis and laser hair removal, as well as the
+              process for obtaining pre-authorization and reimbursement.
+            </p>
+            <p>
+              <strong>
+                This guide is not legal or medical advice, and may not be
+                construed as such.
+              </strong>{" "}
+              Rather, consider this a resource to help navigate the process for
+              these specific services. Always consult with your healthcare
+              provider and insurance company for personalized guidance and
+              information about your medical needs and coverage.
+            </p>
+          </div>
         </section>
         <section>
           <h2 className="my-4 text-xl font-bold">Overview of the Process</h2>
           <div className="prose prose-sm dark:prose-invert">
             <p>
-              The process for getting electrolysis and laser hair removal
+              The process for getting electrolysis and/or laser hair removal
               covered by DHMP can be broken down into three main steps:
             </p>
             <ol>
@@ -75,7 +77,7 @@ export default function Page() {
               <li>Requesting reimbursement</li>
             </ol>
             <p>
-              The following resources are provided by DHMP and will be
+              The following resources were provided by DHMP and will be
               referenced throughout this guide:
             </p>
             <ul>
