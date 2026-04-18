@@ -86,6 +86,16 @@ export const MainNav = ({ variant }: { variant?: string }) => {
               sudoku
             </NavLink>
           </li>
+          {/* <li className="w-auto md:w-full">
+            <NavLink
+              href="/resources/"
+              className="decoration-blue underline-offset-4 decoration-2 hover:underline"
+              activeClasses="underline"
+              onClick={() => setIsOpen(false)}
+            >
+              resources
+            </NavLink>
+          </li> */}
           <li className="w-auto md:w-full">
             <NavLink
               href="/contact/"

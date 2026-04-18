@@ -102,7 +102,7 @@ const AccordionItem = ({ data }: { data: AccordionItemType }) => {
                 size="sm"
                 icon={HiOutlineExternalLink}
                 iconPosition="end"
-                external
+                external={data.link_url.startsWith("http")}
               >
                 {data.link_text}
               </Button>

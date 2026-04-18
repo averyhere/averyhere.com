@@ -127,4 +127,35 @@ const projects = [
   },
 ];
 
-export { work_experience, projects };
+const resources = [
+  {
+    id: 1,
+    order: 1,
+    title: "Colorado Name Change Project",
+    subtitle: "Legal",
+    overview:
+      "<p>Colorado Name Change Project is a nonprofit organization dedicated to improving the lives of transgender Coloradans by assisting them with their legal name change and gender marker corrections.</p>",
+    link_text: "Check it out!",
+    link_url: "https://www.namechangeproject.org/",
+  },
+  {
+    id: 2,
+    order: 2,
+    title: "Electrolysis Coverage Guide for Denver Health Medical Plans",
+    subtitle: "Gender Affirming Healthcare",
+    overview:
+      "<p>Denver Health Elevate Medical Plans cover electrolysis treatments for transgender individuals seeking gender-affirming care. Some of their documentation is difficult or impossible to find, and so we've compiled a list of resources to help.</p>",
+    link_text: "Check it out!",
+    link_url: "/resources/dhmp-electrolysis-coverage-guide/",
+  },
+  {
+    id: 3,
+    order: 3,
+    title: "HRT Dosage Simulators",
+    subtitle: "Tools",
+    overview:
+      '<p>The HRT Dosage Simulators are tools designed to help transgender individuals understand and manage their hormone replacement therapy dosages. These simulators provide a way for individuals to experiment with different dosing strategies. These simulators are not meant to replace professional medical advice.</p><p>Check out the simulators below:</p><ul><li><a href="https://transfemscience.org/misc/injectable-e2-simulator/" target="_blank">Transfeminine Science</a></li><li><a href="https://hrtsimulator.com/" target="_blank">HRT Simulator</a></li><li><a href="https://estrannai.se/" target="_blank">Estrannaise Estradiol Pharmacokinetics Playground</a></li></ul>',
+  },
+];
+
+export { work_experience, projects, resources };
