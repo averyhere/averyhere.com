@@ -80,6 +80,10 @@ body {
   background: var(--color-foreground);
 }
 
+ul li::marker {
+  color: var(--bright-purple);
+}
+
 /* Focus state */
 :focus-visible {
   outline: var(--bright-purple) auto 1px;
