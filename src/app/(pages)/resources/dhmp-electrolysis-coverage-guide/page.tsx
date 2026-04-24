@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { PiArrowFatLineLeftDuotone } from "react-icons/pi";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "DHMP Electrolysis Coverage Guide",
+  title: "DHMP Electrolysis & Laser Hair Removal Coverage Guide",
   description:
     "A guide to help members of Denver Health Medical Plan (DHMP) navigate the process for ensuring their electrolysis and/or laser hair removal sessions are covered correctly.",
 };
@@ -26,15 +27,15 @@ export default function Page() {
       <article>
         <header className="mb-4">
           <h2 className="text-3xl font-bold">
-            Electrolysis/Laser Hair Removal Coverage Guide for DHMP
+            Electrolysis/Laser Hair Removal Coverage Guide
           </h2>
-          <p className="mb-4 font-light">
+          <p className="mb-4 font-light" role="heading" aria-level={2}>
             For individuals enrolled in a Denver Health Medical Plan
           </p>
-          <p className="text-sm font-light">Last updated: April 18, 2026</p>
         </header>
+        <p className="text-sm font-light">Last updated: April 18, 2026</p>
         <section>
-          <h2 className="my-4 text-xl font-bold">Introduction & Disclaimer</h2>
+          <h2 className="my-4 text-xl font-bold">Introduction</h2>
           <div className="prose prose-sm dark:prose-invert">
             <p>
               This guide is intended to help individuals who have a Denver
@@ -51,16 +52,6 @@ export default function Page() {
               insurance provider, reach out to them directly to inquire about
               coverage for electrolysis and laser hair removal, as well as the
               process for obtaining pre-authorization and reimbursement.
-            </p>
-            <p>
-              <strong>
-                This guide is not legal or medical advice, and may not be
-                construed as such.
-              </strong>{" "}
-              Rather, consider this a resource to help navigate the process for
-              these specific services. Always consult with your healthcare
-              provider and insurance company for personalized guidance and
-              information about your medical needs and coverage.
             </p>
           </div>
         </section>
@@ -89,6 +80,7 @@ export default function Page() {
                 >
                   DHMP Resources Page
                 </a>
+                <HiOutlineExternalLink className="inline-block align-super" />
               </li>
               <li>
                 <Link
@@ -128,7 +120,7 @@ export default function Page() {
               >
                 here
               </a>
-              .
+              <HiOutlineExternalLink className="inline-block align-super" />.
             </p>
             <p>
               Within your handbook find the section titled "Benefits/Coverage
@@ -396,6 +388,18 @@ export default function Page() {
             </p>
           </div>
         </section>
+
+        <h2 className="my-4 text-xl font-bold">Disclaimer</h2>
+        <p className="font-light text-sm">
+          <strong>
+            This guide is not legal or medical advice, and may not be construed
+            as such.
+          </strong>{" "}
+          Rather, consider this a resource to help navigate the process for
+          these specific services. Always consult with your healthcare provider
+          and insurance company for personalized guidance and information about
+          your medical needs and coverage.
+        </p>
       </article>
     </>
   );
