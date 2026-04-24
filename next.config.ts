@@ -36,9 +36,9 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/boker",
-        destination: "/boker.pdf",
-        permanent: false,
+        source: "/dhmp-electrolysis",
+        destination: "/resources/dhmp-electrolysis-coverage-guide/",
+        permanent: true,
       },
     ];
   },
