@@ -19,6 +19,7 @@ export default async function Page() {
         <div
           className="shadow-lg"
           style={{
+            // @ts-ignore corner shape is not yet in the official types, but it is supported in all modern browsers and we use it with a fallback border radius for Safari
             cornerShape: "squircle",
             borderRadius: "40px",
           }}
