@@ -1,0 +1,9 @@
+@counter-style repeating-emoji {
+  system: cyclic;
+  symbols: "\270F\FE0F" "\1F92B" "\1F6AB" "\01F4F3" "\1F30D" "\1F9E9";
+  suffix: " ";
+}
+
+.repeatingCounterRule {
+  list-style-type: repeating-emoji;
+}

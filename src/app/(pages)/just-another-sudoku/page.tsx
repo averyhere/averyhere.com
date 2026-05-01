@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import styles from "./style.module.css";
+import { PiGithubLogoDuotone } from "react-icons/pi";
+import { Button } from "@/components/ui";
 
 export const dynamic = "force-static";
 
@@ -11,10 +14,121 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <div className="flex flex-col gap-8">
-      <header className="prose text-center dark:prose-invert">
-        <h1>I'm on the App Store!</h1>
+    <div className="flex flex-col gap-4 lg:pt-20">
+      <header className="flex flex-row gap-4 items-center">
+        <div
+          className="shadow-lg"
+          style={{
+            cornerShape: "squircle",
+            borderRadius: "40px",
+          }}
+        >
+          <Icon size={100} />
+        </div>
+        <div>
+          <h1 className="text-3xl font-bold mb-1">Just Another Sudoku</h1>
+          <span
+            className="inline text-purple font-bold text-sm"
+            aria-hidden="true"
+          >
+            /&zwj;/
+          </span>
+          &nbsp;
+          <span className="inline font-light text-sm">
+            iOS App built with React Native
+          </span>
+        </div>
       </header>
+      <div className="md:flex md:justify-between items-end">
+        <div className="w-full flex flex-row items-center justify-center divide-x divide-purple">
+          <Link
+            target="_blank"
+            className="pr-4"
+            href="https://apps.apple.com/us/app/just-another-sudoku/id6749923370?itscg=30200&itsct=apps_box_badge&mttnsubad=6749923370"
+          >
+            <img
+              src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1755129600"
+              alt="Download on the App Store"
+              style={{
+                height: "34px",
+                aspectRatio: 246 / 82,
+                objectFit: "contain",
+              }}
+            />
+          </Link>
+
+          <Button
+            href="https://github.com/averyhere/just-another-sudoku-app/"
+            size="sm"
+            icon={PiGithubLogoDuotone}
+            iconPosition="end"
+            external
+            className="ml-4"
+          >
+            View on Github
+          </Button>
+        </div>
+      </div>
+      <article className="prose dark:prose-invert">
+        <p>
+          Just Another Sudoku is the clean, classic Sudoku experience you've
+          been looking for. No ads, no accounts, no distractions, and no
+          tracking. Just pure puzzle-solving.
+        </p>
+        <p>
+          Whether you're unwinding before bed, sharpening your mind on your
+          commute, or challenging yourself with harder difficulties, Just
+          Another Sudoku gives you a focused, beautiful space to play.
+        </p>
+        <ul className={styles.repeatingCounterRule}>
+          <li>
+            <strong>Apple Pencil Support</strong>
+            <br />
+            Write numbers directly into cells using Apple's native Scribble
+            feature for a natural, handwriting-first experience designed for
+            iPad.
+          </li>
+
+          <li>
+            <strong>Completely Private</strong>
+            <br />
+            Zero data collection. No accounts. No tracking. What you play stays
+            on your device.
+          </li>
+
+          <li>
+            <strong>Truly Ad-Free</strong>
+            <br />
+            Not "ad-free with a subscription", just actually free of ads,
+            forever.
+          </li>
+
+          <li>
+            <strong>Haptic Feedback</strong>
+            <br />
+            Subtle haptic responses on button presses and number placement make
+            every interaction feel satisfying and tactile.
+          </li>
+
+          <li>
+            <strong>Available in Multiple Languages</strong>
+            <br />
+            Localized for players around the world.
+          </li>
+
+          <li>
+            <strong>Clean, Classic Gameplay</strong>
+            <br />
+            No gimmicks. Just the Sudoku grid you know and love, with a minimal
+            interface that gets out of your way.
+          </li>
+        </ul>
+
+        <p>
+          Perfect for all skill levels from beginners learning the basics to
+          seasoned solvers tackling expert grids.
+        </p>
+      </article>
       <div className="flex flex-col md:flex-row gap-8 items-center">
         <div className="flex flex-col items-center text-center w-full">
           <Icon size={150} />
@@ -36,6 +150,17 @@ export default async function Page() {
               }}
             />
           </Link>
+
+          <Button
+            href="https://github.com/averyhere/just-another-sudoku-app/"
+            size="xs"
+            icon={PiGithubLogoDuotone}
+            iconPosition="end"
+            external
+            className="mt-4"
+          >
+            View on Github
+          </Button>
         </div>
         <div className="flex flex-col items-center text-center w-full">
           <Image
